@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Abhinaybabbi/Project_Repo.git"
+    "url": "git+https://github.com/Abhinaybabbi/Laundary_Website.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Abhinaybabbi/Project_Repo/issues"
+    "url": "https://github.com/Abhinaybabbi/Laundary_Website/issues"
   },
-  "homepage": "https://github.com/Abhinaybabbi/Project_Repo#readme",
+  "homepage": "https://github.com/Abhinaybabbi/Laundary_Website#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
