@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const app = express();
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
-const dotenv = require("dotenv");
+require('dotenv').config()
+// 
 
-mongoose.connect("mongodb+srv://adminab:zxcvbnm123@sandbox.tjibg.mongodb.net/Laundary_website?retryWrites=true&w=majority",(err,res)=>{
+mongoose.connect(`${process.env.MongodbServer}`,(err,then)=>{
     if(err){
         console.log(err)
     }else{
