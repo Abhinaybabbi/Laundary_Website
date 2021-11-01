@@ -6,15 +6,14 @@ const itemSchema = new mongoose.Schema({
   },
   itemName: {
     type:String,
-    enum: [shirt,tshirt,trousers,jeans,boxers,joggers],
+    enum: ["shirt","tshirt","trousers","jeans","boxers","joggers"],
   },
   itemQuantity: {
     type:Number,
     required: true,
   },
   order: {
-    type: mongoose.Schema.Types.ObjectId,ref:"order",
-  }
+    type: mongoose.Schema.Types.ObjectId,ref:"order" }
     
 });
 

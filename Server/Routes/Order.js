@@ -1,7 +1,7 @@
+const { json } = require("body-parser");
 const express = require("express");
+const Order = require("../Models/order");
 const router = express.Router();
-const mongoose = require("mongoose");
-const Order = mongoose.model("Order");
 
 
 
@@ -14,7 +14,7 @@ router.get('/pastOrders', (req, res) => {
         .catch(err => {
             console.log(err)
         })
-})
+});
 
 
 router.post('/createOrder', (req, res) => {
@@ -36,7 +36,7 @@ router.post('/createOrder', (req, res) => {
         .catch(err => {
             console.log(err)
         })
-})
+});
 
 router.get('/myOrders', (req, res) => {
     Order.find({ orderedBy: req.user._id })
@@ -47,8 +47,8 @@ router.get('/myOrders', (req, res) => {
         .catch(err => {
             console.log(err)
         })
-})
+});
 
 
 
-module.exports = router
+module.exports = router;
