@@ -8,6 +8,7 @@ const orderRouter = require("./Routes/order");
 const requireLogin = require("./middleware/requireLogin");
 
 require("dotenv").config();
+app.use(require("./Routes/Order"));
 
 app.use(cors());
 
@@ -40,7 +41,8 @@ app.use("/order",requireLogin,function (req,res,next){
 
         }
 
-        req.user= decoded.data
+        req.user = decoded.data 
+        next();
     }catch(e){
         return res.status(500).json({
             status: "failed",
@@ -49,12 +51,11 @@ app.use("/order",requireLogin,function (req,res,next){
 
     }
    
-    next();
 })
 
 
 
-
+app.use(require("./Routes/Order"));
 app.use(express.json());
 app.use(bodyParser());
 app.use("/order",orderRouter);
