@@ -3,36 +3,52 @@ const express = require("express");
 const Order = require("../Models/order");
 const router = express.Router();
 
+const Orders = require("../Models/order");
 
 
-router.get('/pastOrders', (req, res) => {
-    Order.find()
-        .populate("postedBy")
-        .then(orders => {
-            res.json({ orders })
+
+
+
+router.get("/",async function(req,res){
+    try{
+        const orders= await Order.find();
+        return res.json({
+            status:"sucess",
+            data:{
+                orders
+            }
         })
-        .catch(err => {
-            console.log(err)
+    }catch(e){
+        res.json({
+            status:"Failed",
+            message: e.message
         })
+    }
+})
+router.post("/",async (req,res)=> {
+    const data = new Order({
+        orderId :req.body.orderId,
+        totalItems: req.body.totalItems,
+        totalPrice:req.body.totalPrice,
+        address : req.body.address,
+        orderTimestamp : req.body.timestamps,
+        // user:req.user._id,
+    });
+    const order = await Order.create(data,(err,res)=>{
+        if(err){
+            console.log(err);
+        }else{
+            console.log("order created successfully");
+        }
+
+    });
+
+
 });
 
+router.put("/:id",async function(req,res){
 
-router.post('/createOrder', (req, res) => {
-    const { productType, quantity, washType, price } = req.body
-    if (!productType || !quantity || !washType || !price) {
-        return res.status(422).json({ message: "Please add all fields" })
-    }
-    const order = new Order({
-        productType,
-        quantity,
-        washType,
-        price,
-        orderedBy: req.user
-    })
-    order.save()
-        .then(result => {
-            res.json({ order: result })
-        })
+=======
         .catch(err => {
             console.log(err)
         })
@@ -47,8 +63,10 @@ router.get('/myOrders', (req, res) => {
         .catch(err => {
             console.log(err)
         })
+>>>>>>> 169eabcb71217bbe25ab46cb724bebef537346a5
 });
 
 
 
 module.exports = router;
+

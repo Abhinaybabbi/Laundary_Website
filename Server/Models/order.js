@@ -19,7 +19,7 @@ const orderSchema = new mongoose.Schema({
 
   address : {type:String},
 
-  cancellation: {type:Boolean, default:"No"},
+  cancellation: {type:Boolean, default:false},
   status: {
     type:String,
     enum: [ "pending", "pickedUp", "inProgress", "readyToDeliver", "delivered", "cancelled" ],
