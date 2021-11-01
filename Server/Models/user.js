@@ -31,7 +31,9 @@ const userSchema = new mongoose.Schema({
   pincode: {
     type: Number,
     required: true,
-  }
+  },
+  orders: [{type:mongoose.Schema.Types.ObjectId,ref:"item"}],
+
 });
 
 const User = new mongoose.model("User", userSchema);
