@@ -49,7 +49,7 @@ router.post('/register', (req, res) => {
         })
 })
 
-router.post('/signin', (req, res) => {
+router.post('/signin',async (req, res,next) => {
     const { email, password } = req.body
     if (!email || !password) {
         res.status(422).json({

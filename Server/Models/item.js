@@ -1,16 +1,17 @@
 const mongoose = require("mongoose");
 const itemSchema = new mongoose.Schema({
-  itemId: {
-    type:Number,
-    required: true,
-  },
-  itemName: {
+  name: {
     type:String,
     enum: ["shirt","tshirt","trousers","jeans","boxers","joggers"],
   },
-  itemQuantity: {
+  quantity: {
     type:Number,
-    required: true,
+    // required: true,
+  },
+  price:{type:Number},
+  washtype:{
+    type:String,
+    enum:["wash","iron","dryclean","fold"]
   },
   order: {
     type: mongoose.Schema.Types.ObjectId,ref:"order" }
