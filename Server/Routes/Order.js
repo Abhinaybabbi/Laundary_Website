@@ -42,6 +42,13 @@ router.post("/",async (req,res)=> {
         }
 
     });
+    res.json({
+        status:"sucess",
+        data:{
+            data
+        }
+
+    })
 
 
 });

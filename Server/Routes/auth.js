@@ -9,8 +9,8 @@ require('dotenv').config()
 
 
 router.post('/register', (req, res) => {
-    const { name, email, password, phonenumber, Stateplace, Address, district, pincode } = req.body
-    if (!email || !password || !name || !phonenumber || !Address || !district || !pincode || !Stateplace) {
+    const { name, email, password, phonenumber, stateplace, address, district, pincode } = req.body
+    if (!email || !password || !name || !phonenumber || !address || !district || !pincode || !stateplace) {
         return res.status(422).json({
             error: "please add all the fields"
         })
@@ -28,8 +28,8 @@ router.post('/register', (req, res) => {
                     password: hashedpassword,
                     name,
                     phonenumber,
-                    Stateplace,
-                    Address,
+                    stateplace,
+                    address,
                     district,
                     pincode
                 })
