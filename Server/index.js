@@ -6,9 +6,11 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 require('dotenv').config()
 
-    // Sam Abhinay 
-    // Sam Abhinay Deeven
-    // Laundry
+
+app.use(express.json())
+
+require('./Models/user')
+app.use(require('./Routes/auth'))
 
 
 mongoose.connect(`${process.env.MongodbServer}`, (err, then) => {
@@ -17,9 +19,6 @@ mongoose.connect(`${process.env.MongodbServer}`, (err, then) => {
     } else {
         console.log("connected to db")
     }
-
 });
 
-
-
-app.listen("5000", () => console.log("server is running in 5K"));
+app.listen("5000", () => console.log("server is running in 5000"));

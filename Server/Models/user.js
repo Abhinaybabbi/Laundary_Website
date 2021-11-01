@@ -12,11 +12,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phone: {
+  phonenumber: {
     type: Number,
     required: true,
   },
-  State: {
+  Stateplace: {
     type: String,
     required: true,
   },
@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
   pincode: {
     type: Number,
     required: true,
-  },
+  }
 });
 
 mongoose.model("User", userSchema);
