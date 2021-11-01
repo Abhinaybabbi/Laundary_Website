@@ -6,10 +6,12 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 require('dotenv').config()
 
+
 app.use(express.json())
 
 require('./Models/user')
 app.use(require('./Routes/auth'))
+
 
 mongoose.connect(`${process.env.MongodbServer}`, (err, then) => {
     if (err) {
