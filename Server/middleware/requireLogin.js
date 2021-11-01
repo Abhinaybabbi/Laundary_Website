@@ -1,6 +1,7 @@
-const jwt = require("jsonwebtoken")
-const mongoose = require("mongoose")
-const User = mongoose.model("User")
+const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
+// const User = mongoose.model("User")
+const User = require("../Models/user");
 require('dotenv').config()
 module.exports = (req, res, next) => {
     const { authorization } = req.headers

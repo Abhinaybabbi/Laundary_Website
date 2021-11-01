@@ -12,6 +12,7 @@ const orderSchema = new mongoose.Schema({
     type:Number,
     required: true,
   },
+  items: [{type:mongoose.Schema.Types.ObjectId,ref:"item"}],
   store: {
     type:mongoose.Schema.Types.ObjectId,ref:"store"},
   user: {
