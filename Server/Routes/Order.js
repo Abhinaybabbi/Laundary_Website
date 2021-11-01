@@ -1,10 +1,12 @@
 const { json } = require("body-parser");
 const express = require("express");
 const Order = require("../Models/order");
+const router = express.Router();
 
 const Orders = require("../Models/order");
 
-const router = express.Router();
+
+
 
 
 router.get("/",async function(req,res){
@@ -46,8 +48,25 @@ router.post("/",async (req,res)=> {
 
 router.put("/:id",async function(req,res){
 
+=======
+        .catch(err => {
+            console.log(err)
+        })
+});
+
+router.get('/myOrders', (req, res) => {
+    Order.find({ orderedBy: req.user._id })
+        .populate("orderedBy", "_id name")
+        .then(myOrders => {
+            res.json({ myOrders })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+>>>>>>> 169eabcb71217bbe25ab46cb724bebef537346a5
 });
 
 
 
-module.exports=router;
+module.exports = router;
+
