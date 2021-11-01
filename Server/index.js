@@ -4,13 +4,8 @@ const mongoose = require("mongoose");
 const app = express();
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
-require('dotenv').config()
-
-
-app.use(express.json())
-
-require('./Models/user')
-app.use(require('./Routes/auth'))
+const orderRouter = require("./Routes/order");
+require('dotenv').config() 
 
 
 mongoose.connect(`${process.env.MongodbServer}`, (err, then) => {
@@ -19,6 +14,10 @@ mongoose.connect(`${process.env.MongodbServer}`, (err, then) => {
     } else {
         console.log("connected to db")
     }
+
 });
 
-app.listen("5000", () => console.log("server is running in 5000"));
+app.use(bodyParser());
+app.use("/order",orderRouter);
+
+app.listen("5000", () => console.log("server is running in 5K"));
