@@ -7,7 +7,7 @@ const Order = mongoose.model("Order");
 
 router.get('/pastOrders', (req, res) => {
     Order.find()
-        .populate("postedBy")
+        .populate("orderedBy")
         .then(orders => {
             res.json({ orders })
         })
