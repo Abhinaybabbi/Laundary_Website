@@ -2,8 +2,8 @@
 import React from "react";
 import Home from "./components/pages/home";
 import Register from "./components/pages/register";
-import {BrowserRouter,Route, Router,Switch} from "react-router-dom";
-
+import {BrowserRouter,Route} from "react-router-dom";
+import './App.css'
 
 function App() {
   return (

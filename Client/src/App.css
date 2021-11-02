@@ -1,0 +1,144 @@
+.bg-light {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: rgba(152, 152, 152, 1);
+  color: rgba(119, 131, 143, 1);
+  margin-top: 20px;
+  width: 322px;
+  height: 27px;
+  text-align: left;
+  font: normal normal normal 17px/27px Open Sans;
+  letter-spacing: 0.6px;
+  color: rgba(119, 131, 143, 1);
+  opacity: 1;
+}
+/* }
+input:focus {
+  border-color: green
+} */
+h2 {
+  text-align: left;
+  font: normal normal medium 32px/60px Avenir;
+  letter-spacing: 1.28px;
+  color: rgba(69, 82, 193, 1);
+  text-transform: uppercase;
+  opacity: 1;
+  
+  margin-left: 25%;
+  margin-top: 23%;
+}
+
+.pass {
+  width: 140px;
+  height: 22px;
+  text-align: left;
+  font: normal normal medium 16px/26px Avenir;
+  letter-spacing: 0.64px;
+  color: rgba(69, 82, 193, 1);
+  text-transform: capitalize;
+  opacity: 1;
+  margin-left: 380%;
+  margin-top: 10px;
+}
+
+/* .container{
+
+  background: rgba(185, 192, 253, 0.1) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  width: 710px;
+  height: 769px ;
+ 
+  
+} */
+
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+}
+.flex-child green{
+  background-color: aliceblue;
+}
+.flex-child:first-child {
+  margin-right: 20px;
+}
+.flex-child:second-child {
+  background: rgba(185, 192, 253, 0.1) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  width: 710px;
+  height: 769px;
+}
+.sign_form {
+  width: 50px;
+  height: 50px;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 200px; /* Apply negative top and left margins to truly center the element */
+}
+
+p.heading {
+  width: 411px;
+  height: 257px;
+  text-align: center;
+  font: normal normal 900 100px/120px Avenir;
+  letter-spacing: 0px;
+  color: rgba(88, 97, 174, 1);
+  text-transform: capitalize;
+  opacity: 1;
+  margin-left: 152px;
+  margin-top: 155px;
+}
+p.con{
+margin-top: 14px;
+margin-left: 151px;
+width: 335px;
+height: 27px;
+text-align: left;
+font: normal normal normal 20px/26px Avenir;
+letter-spacing: 0.8px;
+color: rgba(86, 86, 87, 1);
+text-transform: capitalize;
+opacity: 1;
+}
+p.acc{
+  margin-top: 74px;
+margin-left: 152px;
+width: 189px;
+height: 22px;
+text-align: left;
+font: normal normal normal 16px/26px Avenir;
+letter-spacing: 0.64px;
+color: rgba(86, 86, 87, 1);
+text-transform: capitalize;
+opacity: 1;
+}
+input[type=submit]{
+  /* background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer; */
+  border: 2px solid rgba(69, 82, 193, 1);
+  margin-top: 16.5px;
+border-radius: 4px;
+opacity: 1;
+margin-left: 152px;
+width: 150px;
+height: 50px;
+text-align: center;
+font: normal normal bold 15px/20px Open Sans;
+letter-spacing: 0.3px;
+color: rgba(69, 82, 193, 1);
+opacity: 1;
+
+}
