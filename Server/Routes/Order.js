@@ -7,6 +7,17 @@ const router = express.Router();
 const Orders = require("../Models/order");
 
 
+router.get('/pastOrders', (req, res) => {
+    Order.find()
+        .populate("orderedBy")
+        .then(orders => {
+            res.json({ orders })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
+
 
 
 
