@@ -13,7 +13,6 @@ input {
   text-align: left;
   font: normal normal normal 17px/27px Open Sans;
   letter-spacing: 0.6px;
-  color: rgba(119, 131, 143, 1);
   opacity: 1;
 }
 /* }
@@ -62,9 +61,7 @@ h2 {
 .flex-child {
   flex: 1;
 }
-.flex-child green{
-  background-color: aliceblue;
-}
+
 .flex-child:first-child {
   margin-right: 20px;
 }
@@ -140,5 +137,18 @@ font: normal normal bold 15px/20px Open Sans;
 letter-spacing: 0.3px;
 color: rgba(69, 82, 193, 1);
 opacity: 1;
-
+}
+.sign_IN{
+  background: rgba(69, 82, 193, 1) 0% 0% no-repeat padding-box !important;
+border-radius: 4px !important;
+opacity: 1 !important;
+width: 150px !important;
+height: 50px !important;
+text-align: center !important;
+font: normal normal bold 15px/20px Open Sans !important;
+letter-spacing: 0.3px !important;
+color: rgba(255, 255, 255, 1) !important;
+opacity: 1;
+margin-left: 75px !important;
+margin-top: 70px !important;
 }
