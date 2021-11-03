@@ -37,7 +37,7 @@ const Home = () => {
            localStorage.setItem("jwt",data.token)
            localStorage.setItem("user",JSON.stringify(data.user))
           console.log("signed in success");
-         // history.push("/");
+         history.push("/createOrder");
         }
       })
       .catch((err) => {

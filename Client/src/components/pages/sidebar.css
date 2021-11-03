@@ -1,0 +1,22 @@
+
+div .sidebar{
+    display: inline;
+    top: -1.5px;
+    left: 0px;
+    width: 57px;
+    height: 933px;
+    background: #5861AE 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    list-style-type:none;
+    justify-content: center;
+}
+dt{
+    display: flex;
+    margin: 20px 5px;
+    justify-content: center;
+}
