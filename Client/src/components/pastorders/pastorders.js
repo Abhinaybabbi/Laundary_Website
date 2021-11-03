@@ -1,13 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router";
-import Footer from "../footer/footer";
-import Navbar from "../navBar";
-import Sidebar from "../sidebar";
-import "./order.css";
+import Footer from "../pages/footer/footer";
+import Navbar from "../pages/navBar";
+import Sidebar from "../pages/sidebar";
+import "./pastorders.css";
 
 
 
-const CreateOrder = () => {
+const Pastorders = () => {
   const history = useHistory();
 
     return(
@@ -52,7 +52,7 @@ const CreateOrder = () => {
 <div className="create-order-table">
   <div className="order-header">
   <header >
-    <p>Create Order</p>
+    <p>Orders | 0</p>
   </header>
   </div>
 <div>
@@ -60,57 +60,29 @@ const CreateOrder = () => {
   <thead>
 
     <tr className="table-header">
-        <th>Product Types</th>
-        <th>Quantity</th>
-        <th>Wash Type</th>
+        <th>Order Id</th>
+        <th>Order Date & Time</th>
+        <th>Store Location</th>
+        <th>City</th>
+        <th>Total Items</th>
         <th>Price</th>
+        <th>Status</th>
+        <th>View</th>
 
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>Shirts</td>
-        <td>1</td>
-        <td>Wash + Iron</td>
-        <td>1 x 35 = 35</td>
-
-    </tr>
-    <tr>
-        <td>T Shirts</td>
-        <td>1</td>
-        <td>Wash</td>
-        <td>1 x 20 = 20</td>
-
-    </tr>
-    <tr>
-        <td>Trousers</td>
-        <td>0</td>
-        <td>-</td>
-        <td>0</td>
-
-    </tr>
-    <tr>
-        <td>Jeans</td>
-        <td>2</td>
-        <td>Wash</td>
-        <td>2 x 20 = 40</td>
-
-    </tr>
-    <tr>
-        <td>Boxers</td>
-        <td>0</td>
-        <td>-</td>
-        <td>0</td>
-
-    </tr>
-    
-    <tr>
-        <td>Joggers</td>
-        <td>0</td>
-        <td>-</td>
-        <td>0</td>
-
-    </tr>
+        <td>OR0001</td>
+        <td>10 oct 2021, 10:15</td>
+        <td>Jp Nagar</td>
+        <td>Bangalore</td>
+        <td>9581485650</td>
+        <td>10</td>
+        <td>430 rs</td>
+        <td> Ready to Ship</td>
+       
+    </tr>    
       
     </tbody>
     
@@ -118,12 +90,6 @@ const CreateOrder = () => {
 </table>
 </div>
 
-
-<div className="cancelProceed">
-  <button className="btn-order" onClick={()=>{history.push('/createOrderPage')}}>Cancel</button>
-  <button className="btn-order" onClick={()=>{history.push('/orderSummary')}}>Proceed</button>
-
-</div>
 
 </div>
 </div>
@@ -133,4 +99,4 @@ const CreateOrder = () => {
 </div>
         
 )};
-export default CreateOrder;
+export default Pastorders;
