@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
-  orderId: {
-    type:Number,
-    required: true,
-  },
   totalItems: {
     type:Number,
     required: true,
@@ -12,21 +8,39 @@ const orderSchema = new mongoose.Schema({
     type:Number,
     required: true,
   },
-  store: {
-    type:mongoose.Schema.Types.ObjectId, ref="store"
-  },
-  user: {
-  type: mongoose.Schema.Types.ObjectId, ref="user"
-  },
-  address : String,
-  cancellation: Boolean,
+  orderitems: [
+    {
+      name:{String},
+      quantity:{Number},
+      price:{Number},
+      washtype:{String},
+      item:{type:mongoose.Schema.Types.ObjectId,ref:"item"}
+   }
+  ],
+  storedetails: [
+    {
+      name :{String},
+      address:{String},
+      city:{String},
+      phone:{Number},
+      store : {type:mongoose.Schema.Types.ObjectId,ref:"store"},
+    }
+  ],
+  
+  user:{type: mongoose.Schema.Types.ObjectId, ref:"user"},
+
+  address : {type:String},
+
+  cancellation: {type:Boolean, default:false},
   status: {
     type:String,
-    enum: [ Pending, PickedUp, InProgress, ReadyToDeliver, Delivered, Cancelled ],
-    Default:"Pending"
-  },
-  
-});
+    enum: [ "pending", "pickedUp", "inProgress", "readyToDeliver", "delivered", "cancelled" ],
+    Default:"pending"
+  }  
+},{  timestamps:true,
+  // { currentTime: () => Math.floor(Date.now() / 1000) }
+}
+);
 
 const Order = mongoose.model("Order",orderSchema)
 module.exports=Order;

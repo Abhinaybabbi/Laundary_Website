@@ -12,11 +12,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phonenumber: {
+  phone: {
     type: Number,
     required: true,
   },
-  Stateplace: {
+  stateplace: {
     type: String,
     required: true,
   },
@@ -24,15 +24,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Address: {
+  address: {
     type: String,
     required: true,
   },
   pincode: {
     type: Number,
     required: true,
-  }
+  },
+  orders: [{type:mongoose.Schema.Types.ObjectId,ref:"item"}],
+
 });
 
-const User = new mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;
