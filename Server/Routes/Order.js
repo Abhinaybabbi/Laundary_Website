@@ -12,6 +12,7 @@ router.get('/pastOrders', (req, res) => {
         .populate("orderedBy")
         .then(orders => {
             res.json({ orders })
+
         })
         .catch(err => {
             console.log(err)
@@ -21,41 +22,42 @@ router.get('/pastOrders', (req, res) => {
 
 
 
-router.get("/",async function(req,res){
-    try{
-        const orders= await Order.find();
+router.get("/", async function(req, res) {
+    try {
+        const orders = await Order.find();
         return res.json({
-            status:"sucess",
-            data:{
+            status: "sucess",
+            data: {
                 orders
             }
+
         })
-    }catch(e){
+    } catch (e) {
         res.json({
-            status:"Failed",
+            status: "Failed",
             message: e.message
         })
     }
 })
-router.post("/",requireLogin,async (req,res)=> {
+router.post("/", requireLogin, async(req, res) => {
     const data = new Order({
         totalItems: req.body.totalItems,
-        totalPrice:req.body.totalPrice,
-        address : req.body.address,
-        orderTimestamp : req.body.timestamps,
+        totalPrice: req.body.totalPrice,
+        address: req.body.address,
+        orderTimestamp: req.body.timestamps,
         user: req.user._id
     });
-    const order = await Order.create(data,(err,res)=>{
-        if(err){
+    const order = await Order.create(data, (err, res) => {
+        if (err) {
             console.log(err);
-        }else{
+        } else {
             console.log("order created successfully");
         }
 
     });
     res.json({
-        status:"sucess",
-        data:{
+        status: "sucess",
+        data: {
             data
         }
 
@@ -64,10 +66,9 @@ router.post("/",requireLogin,async (req,res)=> {
 
 });
 
-router.put("/:id",async function(req,res){
+router.put("/:id", async function(req, res) {
 
 });
 
 
 module.exports = router;
-
