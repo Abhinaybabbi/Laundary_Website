@@ -1,9 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router";
 import Footer from "../pages/footer/footer";
-import Navbar from "../pages/navBar";
+import Modal from "../pages/modal";
+import Navbar from "../pages/navBar1";
 import Sidebar from "../pages/sidebar";
 import "./pastorders.css";
+
 
 
 
@@ -51,9 +53,15 @@ const Pastorders = () => {
 
 <div className="create-order-table">
   <div className="order-header">
+    <div>
   <header >
     <p>Orders | 0</p>
+    
   </header>
+  </div>
+  <div>
+  <button className="btn btn" onClick={()=>{history.push('/order')}}>Create</button>
+  </div>
   </div>
 <div>
 <table className="orderTable">

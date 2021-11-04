@@ -10,8 +10,7 @@ const Home = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const PostData = () => {
-    if (
-      !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    if (!/^((^<>()\[\]\\.,;:\s@"]+(\.^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       )
     ) {
@@ -36,8 +35,8 @@ const Home = () => {
         } else {
            localStorage.setItem("jwt",data.token)
            localStorage.setItem("user",JSON.stringify(data.user))
-          console.log("signed in success");
-         history.push("/createOrder");
+            console.log("signed in success");
+            history.push("/Order");
         }
       })
       .catch((err) => {
@@ -67,7 +66,7 @@ const Home = () => {
 
         <div
           className="flex-child"
-          style={{ background: "rgba(185, 192, 253, 0.1)" }}
+          style={{ background: "rgba(185, 192, 253, 0.102)" }}
         >
           <h2>SIGN IN </h2>
           <div className="sign_form">
