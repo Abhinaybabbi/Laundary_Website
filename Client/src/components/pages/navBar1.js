@@ -12,13 +12,13 @@ const Navbar = () => {
         <ul className="navbar-nav ml-auto" >
         
         <li className="nav-item" style={{border:" 1px solid rgba(227, 227, 227, 1)"}}>
-        <button className ="btn">Pricing</button>
+        <button className ="btn" id="btn">Pricing</button>
         </li>
         <li className="nav-item" style={{border:" 1px solid rgba(227, 227, 227, 1)"}}>
-        <button className ="btn">Career</button>
+        <button className ="btn" id="btn">Career</button>
         </li>
         <li className="nav-item" style={{border:" 1px solid rgba(227, 227, 227, 1)"}}>
-            <button className ="btn signin" style={{width:"213px"}} >User Name</button>
+            <button className ="btn signin"  style={{width:"213px"}} >User Name</button>
         </li>
         
 
