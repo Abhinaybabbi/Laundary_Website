@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import Footer from "../footer/footer";
+import Modal1 from "../modal1";
 import Modal from "../modal";
 import Navbar from "../navBar1";
 import Sidebar from "../sidebar";
@@ -11,6 +12,9 @@ import "./order.css";
 
 const CreateOrder = () => {
   const history = useHistory();
+  const [show,setShow] = useState(false)
+  const [modal,setModal] = useState(false)
+
 
     return(
 
@@ -66,51 +70,91 @@ const CreateOrder = () => {
         <th>Quantity</th>
         <th>Wash Type</th>
         <th>Price</th>
+        <th></th>
 
     </tr>
     </thead>
     <tbody>
     <tr>
         <td>Shirts</td>
-        <td>1</td>
-        <td>Wash + Iron</td>
+        <td><input type={Number} placeholder="0"></input></td>
+        <td>
+          <div className="washTypes">
+          <div>washing</div>
+          <div>iron</div>
+          <div>Dryclean</div>
+          <div>chemical wash</div>
+          </div>
+        </td>
         <td>1 x 35 = 35</td>
+        <td><button>Reset</button> </td>
 
     </tr>
     <tr>
         <td>T Shirts</td>
-        <td>1</td>
-        <td>Wash</td>
+        <td><input type={Number} placeholder="0"></input></td>
+        <td><div className="washTypes">
+          <div>washing</div>
+          <div>iron</div>
+          <div>Dryclean</div>
+          <div>chemical wash</div>
+          </div></td>
         <td>1 x 20 = 20</td>
+        <td><button>Reset</button> </td>
 
     </tr>
     <tr>
         <td>Trousers</td>
-        <td>0</td>
-        <td>-</td>
-        <td>0</td>
+        <td><input type={Number} placeholder="0"></input></td>
+        <td><div className="washTypes">
+          <div>washing</div>
+          <div>iron</div>
+          <div>Dryclean</div>
+          <div>chemical wash</div>
+          </div></td>
+          <td>0</td>
+        <td><button>Reset</button> </td>
 
     </tr>
     <tr>
         <td>Jeans</td>
-        <td>2</td>
-        <td>Wash</td>
+        <td><input type={Number} placeholder="0"></input></td>
+        <td><div className="washTypes">
+          <div>washing</div>
+          <div>iron</div>
+          <div>Dryclean</div>
+          <div>chemical wash</div>
+          </div></td>
         <td>2 x 20 = 40</td>
+        <td><button>Reset</button> </td>
 
     </tr>
     <tr>
         <td>Boxers</td>
-        <td>0</td>
-        <td>-</td>
-        <td>0</td>
+        <td><input type={Number} placeholder="0"></input></td>
+        <td><div className="washTypes">
+          <div>washing</div>
+          <div>iron</div>
+          <div>Dryclean</div>
+          <div>chemical wash</div>
+          </div></td>
+          <td>0</td>
+        <td><button>Reset</button> </td>
 
     </tr>
     
     <tr>
         <td>Joggers</td>
+        <td><input type={Number} placeholder="0"></input></td>
+        <td><div className="washTypes">
+          <div>washing</div>
+          <div>iron</div>
+          <div>Dryclean</div>
+          <div>chemical wash</div>
+          </div></td>
         <td>0</td>
-        <td>-</td>
-        <td>0</td>
+        <td><button>Reset</button> </td>
+
 
     </tr>
       
@@ -124,7 +168,10 @@ const CreateOrder = () => {
 
 <div className="cancelProceed">
   <button className="btn-order" onClick={()=>{history.push('/Order')}}>Cancel</button>
-  <button className="btn-order" onClick={()=>{<Modal/>}}>Proceed</button>
+  <button className="btn-order" onClick={()=>setShow(true)}>Proceed</button>
+  <Modal1 onClose={()=>setShow(false)} show={show}/>
+  <Modal onOpen={()=>setModal(true)} modal={modal}/> 
+   
 
 </div>
 

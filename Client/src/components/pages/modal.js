@@ -1,34 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
+import "./modal.css";
+import { useHistory } from "react-router";
 
-
-
-function Modal() {
-    const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
-    const [fullscreen, setFullscreen] = useState(true);
-    const [show, setShow] = useState(false);
-  
-    function handleShow(breakpoint) {
-      setFullscreen(breakpoint);
-      setShow(true);
+const Modal = props =>{
+    const history = useHistory();
+    if (!props.modal){
+        return null
     }
-  
-    return (
-      <>
-        {values.map((v, idx) => (
-          <button key={idx} className="me-2" onClick={() => handleShow(v)}>
-            Full screen
-            {typeof v === 'string' && `below ${v.split('-')[0]}`}
-          </button>
-        ))}
-        <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Modal body content</Modal.Body>
-        </Modal>
-      </>
-    );
-  }
-  
+    return(
+        <div className="modal1">
+             <div className="modal1-content">
+             <div>
 
+             </div>
+             <div>
+                 <h1>Your order is Successful</h1>
+             </div>
+             <div>
+                 <button className="btn" onClick={()=>{history.push('/pastorders')}} > Go to orders</button>
+             </div>
+             </div>
+        </div>
+    )
+}
 export default Modal;
