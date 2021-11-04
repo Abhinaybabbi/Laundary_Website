@@ -1,9 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router";
 import Footer from "../footer/footer";
-import Navbar from "../navBar";
+import Modal from "../modal";
+import Navbar from "../navBar1";
 import Sidebar from "../sidebar";
 import "./order.css";
+
 
 
 
@@ -116,12 +118,13 @@ const CreateOrder = () => {
     
     
 </table>
+
 </div>
 
 
 <div className="cancelProceed">
-  <button className="btn-order" onClick={()=>{history.push('/createOrderPage')}}>Cancel</button>
-  <button className="btn-order" onClick={()=>{history.push('/orderSummary')}}>Proceed</button>
+  <button className="btn-order" onClick={()=>{history.push('/Order')}}>Cancel</button>
+  <button className="btn-order" onClick={()=>{<Modal/>}}>Proceed</button>
 
 </div>
 

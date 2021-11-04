@@ -36,7 +36,7 @@ function App() {
         <Route path="/pastorders">
           <Pastorders />
         </Route>
-        <Route path="/createorder">
+        <Route path="/order">
           <CreatOrder />
         </Route>
       </BrowserRouter>

@@ -11,10 +11,10 @@
     margin-right: 20px;
   }
   .flex-child:second-child {
-    background: rgba(185, 192, 253, 0.1) 0% 0% no-repeat padding-box;
+    background: rgba(185, 192, 253, 0.102) 0% 0% no-repeat padding-box;
     opacity: 1;
     width: 710px;
-    height: 769px;
+    /* height: 769px; */
   }
   .sign_form {
     width: 50px;
@@ -31,6 +31,7 @@ p.heading {
     width: 411px;
     height: 257px;
     text-align: center;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font: normal normal 900 100px/120px Avenir;
     letter-spacing: 0px;
     color: rgba(88, 97, 174, 1);
@@ -95,6 +96,7 @@ p.heading {
   }
   input {
     outline: 0;
+    background-color: rgba(185, 192, 253, 0.102);
     border-width: 0 0 2px;
     border-color: rgba(152, 152, 152, 1);
     color: rgba(119, 131, 143, 1);
