@@ -19,18 +19,11 @@ const Navbar = () => {
         <li className="nav-item" style={{border:" 1px solid rgba(227, 227, 227, 1)"}}>
         <button className ="btn" id="btn">Career</button>
         </li>
-        <li className="nav-item" style={{border:" 1px solid rgba(227, 227, 227, 1)"}}>
-            <button className ="btn signin"  style={{width:"213px"}} >User Name</button>
-            <div class="dropdown-content">
-          <a href="/">Account</a>
-          <a href="/"onClick={()=>{history.push('/')}}>Sign out</a>
-          </div>
-        </li>
-        <li class="nav-item">
-        <div class="dropdown">
-        <button class="dropbtn">User Name</button>
-        <div class="dropdown-content">
-        <a href="#">Account</a>
+        <li className="nav-item">
+        <div className="dropdown">
+        <button className="dropbtn">User Name</button>
+        <div className="dropdown-content">
+        <a href="/">Account</a>
         <a href="/" onClick={()=>{history.push('/')}}>Sign out</a>
         </div>
         </div>
