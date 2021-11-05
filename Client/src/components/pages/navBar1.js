@@ -23,8 +23,8 @@ const Navbar = () => {
         <div className="dropdown">
         <button className="dropbtn">User Name</button>
         <div className="dropdown-content">
-        <a href="/">Account</a>
-        <a href="/" onClick={()=>{history.push('/')}}>Sign out</a>
+        <a href="/homepage">Account</a>
+        <a href="/">Sign out</a>
         </div>
         </div>
         </li>

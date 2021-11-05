@@ -1,5 +1,5 @@
 import "./newmodal.css";
-const Addressbar = ({ stores }) => {
+const Addressbar = () => {
     return(
         
         <div className="store-details">
@@ -11,7 +11,7 @@ const Addressbar = ({ stores }) => {
                 <option value="3">Malakpet</option>
             </select>
         </div>
-        <div className="store-details-element">
+        <div className="store-details-element"> 
             <span className="style-bold">Phone:</span>
             <span>+91 99999999</span>
         </div>

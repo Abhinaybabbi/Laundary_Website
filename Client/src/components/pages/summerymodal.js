@@ -1,11 +1,9 @@
 import React from "react";
 import "./modal1.css";
-import stores from "../utils/storedata";
 import Addresbar from"./addressbar";
 
-
 const Modal1 = props =>{
-    
+
     if (!props.show){
         return null
     }
@@ -16,7 +14,17 @@ const Modal1 = props =>{
                  <h4 className="modal-title">Summary</h4>
                  <a><button className="btn" onClick={props.onClose}>X</button></a>
              </div>
-             <Addresbar  />
+             <div className=" p-1 m-2">
+             <div className="store-details-element"> 
+            <span className="style-bold">Phone:</span>
+            <span>+91 99999999</span>
+        </div>
+        <div className="store-details-element">
+            <span className="style-bold">Store Address:</span>
+            <span>Near phone booth 10th road</span>
+        </div>
+             </div>
+
              <div className="order-details">
                  <span>Order Details</span>
                  <div className="modal-body-table">
@@ -78,7 +86,7 @@ const Modal1 = props =>{
                                   
              </div>
              <div className="modal-footer">
-                     <button className="btn custom-btn-confirm" onClick={ props.onClose  }> Confirm</button>
+                     <button className="btn btn-danger" onClick={ props.onClose }> Cancel</button>
                      
             </div>
              </div>
