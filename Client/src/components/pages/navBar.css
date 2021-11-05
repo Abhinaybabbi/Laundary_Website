@@ -37,6 +37,11 @@ nav{
     font-size: 16px;
     border: none;
     cursor: pointer;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    height: 80px;
+    width: 113px;
+
 }
 
 .dropdown {
