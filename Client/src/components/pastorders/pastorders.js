@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
 import Footer from "../pages/footer/footer";
-import Modal from "../pages/modal";
 import Navbar from "../pages/navBar1";
 import Sidebar from "../pages/sidebar";
 import "./pastorders.css";
@@ -18,39 +17,6 @@ const Pastorders = () => {
   <Navbar/>
   <div className="main-page">
   <Sidebar/>
-
-{/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <div className="container-fluid">
-    <a className="logo" href="/" onClick={()=>{history.push('/')}}>LAUNDRY</a>
-   
-    <div className="firstpageOptions">
-    <ul class="nav justify-content-end">
- 
-  <li class="nav-item">
-    <a class="nav-link" href="#">Pricing</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Careers</a>
-  </li>
-  <li class="nav-item">
-  <div class="dropdown">
-  <button class="dropbtn">User Name</button>
-  <div class="dropdown-content">
-  <a href="#">Account</a>
-  <a href="/" onClick={()=>{history.push('/')}}>Sign out</a>
-  </div>
-</div>
-
-
-  </li>
-  
-</ul>
-    </div>
-  </div>
-</nav> */}
-
-
-
 <div className="create-order-table">
   <div className="order-header">
     <div>

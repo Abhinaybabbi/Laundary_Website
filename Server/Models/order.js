@@ -8,24 +8,15 @@ const orderSchema = new mongoose.Schema({
     type:Number,
     required: true,
   },
-  orderitems: [
-    {
-      name:{String},
-      quantity:{Number},
-      price:{Number},
-      washtype:{String},
+  items: [{
       item:{type:mongoose.Schema.Types.ObjectId,ref:"item"}
    }
   ],
-  storedetails: [
-    {
-      name :{String},
-      address:{String},
-      city:{String},
-      phone:{Number},
-      store : {type:mongoose.Schema.Types.ObjectId,ref:"store"},
-    }
-  ],
+ 
+    
+  // store : {type:mongoose.Schema.Types.ObjectId,ref:"store"},
+    
+  
   
   user:{type: mongoose.Schema.Types.ObjectId, ref:"user"},
 

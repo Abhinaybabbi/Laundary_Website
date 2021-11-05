@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 import "./modal1.css";
-import Modal from "./modal";
+import stores from "../utils/storedata";
+import Addresbar from"./addressbar";
+
 
 const Modal1 = props =>{
+    const [store, setStore] = useState(stores);
     if (!props.show){
         return null
     }
@@ -11,21 +14,9 @@ const Modal1 = props =>{
              <div className="modal-content">
              <div className="modal-header">
                  <h4 className="modal-title">Summary</h4>
-                 <button className="btn btn-danger" onClick={props.onClose}>close</button>
+                 <a><button className="btn" onClick={props.onClose}>X</button></a>
              </div>
-             <div className="modal-addres-bar">
-                 <div className="modal-address-input">
-                    <input type="text" placeholder="Store Location"></input>
-                     
-                 </div>
-                 <div className="modal-address-store">
-                 <label>Store Address :</label>
-                 </div>
-                 <div className="modal-address-phone">
-                 <label>Phone :</label>
-                 </div>
-
-             </div>
+             <Addresbar stores = {store} />
              <div className="modal-body">
                  <p>Order Details</p>
                  <div className="modal-body-table">
@@ -76,21 +67,20 @@ const Modal1 = props =>{
                      </table>
                  </div>
              </div>
-             <div className="modal-footer">
-                 <p>Address</p>
+             <div className="modal-footer1">
+                 
                  <div className="Address">
+                 <p>Address :</p>
                      <button>
                      <h1>Home</h1>
                      <p>1-878/45, 10th street,JP Nagar,Bangalore</p>  </button>
-                 </div>
-                 <div>
-                     <button className="btn btn-primary" onClick={
-                         props.onClose
-                         }> Confirm</button>
+                     <input className='add-address' type="text" placeholder="enter your address"></input>
+                 </div>               
+             </div>
+             <div className="modal-footer">
+                     <button className="btn btn-primary" onClick={ props.onClose  }> Confirm</button>
                      
                  </div>
-                
-             </div>
              </div>
         </div>
     )
