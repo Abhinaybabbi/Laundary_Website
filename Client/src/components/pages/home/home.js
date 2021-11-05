@@ -5,7 +5,7 @@ import Footer from "../footer/footer"
 import Footer1 from "../footer/footer1";
 import Lock from "../../Assets/images/signin/padlock.svg"
 import './home.css'
-// import { setToken } from "../../utils/authOperations";
+
 const Home = () => {
   const history = useHistory();
   const [password, setPassword] = useState("");
@@ -34,6 +34,7 @@ const Home = () => {
         if (data.error) {
           console.log(data.error);
         } else {
+           
            localStorage.setItem("jwt",data.token)
            localStorage.setItem("user",JSON.stringify(data.user))
            console.log("signed in success");
@@ -96,10 +97,7 @@ const Home = () => {
               />
               <p className="pass">Forget Password?</p>
     
-              <button
-                className="sign_IN"
-                onClick={() => PostData()}
-              >
+              <button className="sign_IN"  onClick={() => PostData()}>
                 Sign In
               </button>
             </form>

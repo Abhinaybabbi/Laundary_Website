@@ -1,15 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import { useHistory } from "react-router";
 import Footer from "../pages/footer/footer";
 import Navbar from "../pages/navBar1";
 import Sidebar from "../pages/sidebar";
 import "./pastorders.css";
-
+import Pastordertable from "./pastOrder";
+import orders from "../utils/orderdata";
 
 
 
 const Pastorders = () => {
   const history = useHistory();
+  
+
+  const [orderItems, setOrderItems] = useState(orders);
 
     return(
 
@@ -17,19 +21,25 @@ const Pastorders = () => {
   <Navbar/>
   <div className="main-page">
   <Sidebar/>
-<div className="create-order-table">
-  <div className="order-header">
-    <div>
-  <header >
-    <p>Orders | 0</p>
-    
-  </header>
+  <div className="create-order-table">
+    <div className="order-header">
+        <header>
+          <span>Orders | 7 </span>
+        </header>  
+      
+        <button className="btn m-2" onClick={()=>{history.push('/order')}}>Create</button>
+      </div>
+      <Pastordertable orders = {orderItems}/>
   </div>
-  <div>
-  <button className="btn btn" onClick={()=>{history.push('/order')}}>Create</button>
-  </div>
-  </div>
-<div>
+</div>
+<Footer />
+
+
+</div>
+        
+)};
+export default Pastorders;
+{/* <div>
 <table className="orderTable">
   <thead>
 
@@ -62,15 +72,4 @@ const Pastorders = () => {
     
     
 </table>
-</div>
-
-
-</div>
-</div>
-<Footer />
-
-
-</div>
-        
-)};
-export default Pastorders;
+</div> */}
