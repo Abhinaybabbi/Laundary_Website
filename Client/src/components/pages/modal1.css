@@ -8,9 +8,7 @@
     align-items: center;
     justify-content: flex-end;
 }
-.add-address{
-    border: 1px solid grey;
-}
+
 .modal-content {
     width: 60%;
     height: 100%;
@@ -18,7 +16,7 @@
 
 }
 
-.modal-header, .modal-footer {
+.modal-header {
     padding: 10px;
     background-color: #5861AE;
 
@@ -46,4 +44,8 @@
     display: flex;
     flex-direction: row;
 
+}
+.Address{
+    display: flex;
+    flex-direction: column;
 }
