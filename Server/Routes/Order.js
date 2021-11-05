@@ -4,23 +4,6 @@ const requireLogin = require("../middleware/requireLogin");
 const Order = require("../Models/order");
 const router = express.Router();
 
-const Orders = require("../Models/order");
-
-
-router.get('/pastOrders', (req, res) => {
-    Order.find()
-        .populate("orderedBy")
-        .then(orders => {
-            res.json({ orders })
-
-        })
-        .catch(err => {
-            console.log(err)
-        })
-})
-
-
-
 
 router.get("/", async function(req, res) {
     try {
@@ -40,6 +23,7 @@ router.get("/", async function(req, res) {
     }
 })
 router.post("/", requireLogin, async(req, res) => {
+    const { totalItems , totalPrice , address , orderTimestamp} =req.body;
     const data = new Order({
         totalItems: req.body.totalItems,
         totalPrice: req.body.totalPrice,
@@ -47,18 +31,13 @@ router.post("/", requireLogin, async(req, res) => {
         orderTimestamp: req.body.timestamps,
         user: req.user._id
     });
-    const order = await Order.create(data, (err, res) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("order created successfully");
-        }
-
+    const order = await Order.create({
+        totalItems , totalPrice , address , orderTimestamp , user : req.user
     });
     res.json({
         status: "sucess",
         data: {
-            data
+            order
         }
 
     })

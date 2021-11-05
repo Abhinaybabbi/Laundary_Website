@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Navbar from "../navBar";
-import Footer from "../../pages/footer/footer"
-import Footer1 from "../../pages/footer/footer1";
+import Footer from "../footer/footer"
+import Footer1 from "../footer/footer1";
 import Lock from "../../Assets/images/signin/padlock.svg"
 import './home.css'
+// import { setToken } from "../../utils/authOperations";
 const Home = () => {
   const history = useHistory();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const PostData = () => {
+    
     if (!/^((^<>()\[\]\\.,;:\s@"]+(\.^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       )
@@ -29,19 +31,21 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.error) {
           console.log(data.error);
         } else {
            localStorage.setItem("jwt",data.token)
            localStorage.setItem("user",JSON.stringify(data.user))
-            console.log("signed in success");
-            history.push("/Order");
+           console.log("signed in success");
+           history.push("/order");
         }
+        
       })
       .catch((err) => {
         console.log(err);
       });
+      
+      
   };
 
   return (

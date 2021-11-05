@@ -84,3 +84,18 @@ td, th {
     flex-direction: row;
     justify-content: space-between;
 }
+.item-quantity{
+    display: flex;
+    justify-content: center;
+    height: 26px;
+    width:63px;
+    border: 1px solid black;
+}
+.photo{
+    width: 45px;
+    height: 48px;
+
+}
+.item{
+    display: flex;
+}

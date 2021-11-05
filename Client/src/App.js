@@ -9,6 +9,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Pricing from "./components/intopage/pricing";
 import Career from "./components/intopage/career";
 import Introone from"./components/intopage/intro1";
+import PrivateRoute from "./components/PrivateRoute";
 
 
 function App() {
@@ -27,15 +28,15 @@ function App() {
         <Route exact path="/home">
           <Intro />
         </Route>
-        <Route exact path="/homepage">
+        <PrivateRoute exact path="/homepage">
           <Introone/>
-        </Route>
+        </PrivateRoute>
         <Route path="/register">
           <Register />
         </Route>
-        <Route path="/pastorders">
+        <PrivateRoute path="/pastorders">
           <Pastorders />
-        </Route>
+        </PrivateRoute>
         <Route path="/order">
           <CreatOrder />
         </Route>
