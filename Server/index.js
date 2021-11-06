@@ -11,7 +11,7 @@ const storeRouter = require("./Routes/store");
 const requireLogin = require("./middleware/requireLogin");
 
 require("dotenv").config();
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser());
 app.use(cors());
 app.use(express.static("./public"))
 
