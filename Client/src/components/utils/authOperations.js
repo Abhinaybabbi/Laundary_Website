@@ -20,11 +20,7 @@ function setToken(token) {
     }
     
 }
-function clearToken(token) {
-    if (window.localStorage){
-        localStorage.clear()
-    }
-}
 
-export {getToken, isAuthenticated, setToken , clearToken};
+
+export {getToken, isAuthenticated, setToken };
 
