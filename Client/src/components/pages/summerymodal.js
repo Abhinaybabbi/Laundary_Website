@@ -1,6 +1,6 @@
 import React from "react";
 import "./modal1.css";
-import Addresbar from"./addressbar";
+
 
 const Modal1 = props =>{
 
@@ -12,7 +12,7 @@ const Modal1 = props =>{
              <div className="modal-content">
              <div className="modal-header">
                  <h4 className="modal-title">Summary</h4>
-                 <a><button className="btn" onClick={props.onClose}>X</button></a>
+                 <a href="#"><button className="btn" onClick={props.onClose}>X</button></a>
              </div>
              <div className=" p-1 m-2">
              <div className="store-details-element"> 

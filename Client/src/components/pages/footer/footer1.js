@@ -26,10 +26,10 @@ const Footer1 = () => {
               <h5 className="text-uppercase">Home</h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!">Sign In</a>
+                  <span href="#!">Sign In</span>
                 </li>
                 <li>
-                  <a href="#!">Register</a>
+                  <span href="#!">Register</span>
                 </li>
               </ul>
             </div>
@@ -41,10 +41,10 @@ const Footer1 = () => {
               <h5>Career</h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!">Blogs</a>
+                  <span href="#!">Blogs</span>
                 </li>
                 <li>
-                  <a href="#!">Crete</a>
+                  <span href="#!">Crete</span>
                 </li>
               </ul>
             </div>

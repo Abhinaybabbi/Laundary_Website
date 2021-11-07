@@ -1,13 +1,20 @@
 nav{
     height: 80px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 2px 48px #0000000F;
+    /* box-shadow: 0px 2px 48px #0000000F; */
     opacity: 1;
     top: 0px;
-    left: 0px;
+    padding: 0px 0px 0px 0px;
+    
     
 
  
+}
+#abcd{
+    box-shadow: 0px 2px 48px #0000000F;
+}
+.navbar{
+    padding: 0rem 0rem;
 }
 #btn{
     top: 0px;
@@ -24,7 +31,7 @@ nav{
     background: #5861AE 0% 0% no-repeat padding-box;
     border: 2px gray;
     color: #FFFFFF;
-    box-shadow: 0px 3px 6px #00000029;
+    /* box-shadow: 0px 3px 6px #00000029; */
     opacity: 1;
     height: 80px;
     width: 113px;

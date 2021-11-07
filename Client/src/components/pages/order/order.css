@@ -1,8 +1,6 @@
-.main-page{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+/* .main-page{
+;
+} */
 .total{
     display: flex;
     flex-direction: column;
@@ -50,16 +48,23 @@
     opacity: 1;
 
 }
+.hw{
+    top: 177px;
+left: 108px;
+width: 1295px;
+height: 628px;
+
+}
 .orderTable{
     top: 177px;
-    left: 108px;
+    right: 108px;
     width: 1295px;
     height: 628px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-bottom: 2px solid #E0E0E0;
     border-radius: 2px;
     opacity: 1;
-    margin: 20px 20px;
+    margin: 20px 60px;
     
 }
 table {

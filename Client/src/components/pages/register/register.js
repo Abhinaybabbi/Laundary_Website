@@ -3,57 +3,41 @@ import { useHistory } from "react-router";
 import Navbar from "../navBar";
 import "./register.css";
 import Footer from "../../pages/footer/footer";
+import axios from "axios";
 import Footer1 from "../../pages/footer/footer1";
 
-const Register = () => {
-  const history = useHistory();
+function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [stateplace, setStateplace] = useState("");
-  const [address, setAddress] = useState("");
   const [district, setDistrict] = useState("");
+  const [address, setAddress] = useState("");
   const [pincode, setPincode] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
-  const PostData = () => {
-    if (
-      !/^((^<>()\[\]\\.,;:\s@"]+(\.^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((s[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-      )
-    ) {
-      console.log("invalid email");
-      return;
-    }
-    fetch("/register", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+  
+  function createRegister() {
+    axios
+      .post("http://localhost:5000/register", {
         name: name,
-        password: password,
         email: email,
-        phone,
-        stateplace,
-        address,
-        district,
-        pincode,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.error) {
-          console.log(data.error);
-        } else {
-          console.log(data.message);
-          history.push("/");
-        }
+        phone: phone,
+        stateplace: stateplace,
+        district: district,
+        address: address,
+        pincode: pincode,
+        password: password,
       })
-      .catch((err) => {
-        console.log(err);
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
       });
-  };
+    history.push("/");
+  }
   const [tnc, setTnc] = useState(false);
   function getFormData(e) {
     console.warn(tnc);
@@ -69,7 +53,7 @@ const Register = () => {
             className="cont"
             style={{ background: "rgba(255, 255, 255, 1)" }}
           >
-            <p className="heading_register">LAUNDRY SERVICE</p>
+            <p className="heading_register">Laundry Service</p>
             <p className="content1">Doorstep Wash & Dryclean Service</p>
 
             <p className="content2">Already Have Account</p>
@@ -83,8 +67,7 @@ const Register = () => {
             <div
               className="card-body"
               style={{
-                width: "1038px",
-                height: "550px",
+                      
 
                 background:
                   "rgba(248, 249, 255, 1) 0% 0% no-repeat padding-box",
@@ -180,7 +163,7 @@ const Register = () => {
                     />
                   </div>
                 </div>
-                <input
+                <input className="checkbox"
                   type="checkbox"
                   style={{ marginRight: "10px" }}
                   onChange={(e) => setTnc(e.target.checked)}
@@ -193,7 +176,7 @@ const Register = () => {
                 <br />
                 <button
                   className="register1"
-                  onClick={() => PostData()}
+                  onClick={createRegister}
                   type="submit"
                 >
                   Register

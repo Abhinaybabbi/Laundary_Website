@@ -4,7 +4,7 @@ import "./navBar.css";
 const Navbar = () => {
   return (
     
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow" > 
       
         <h3 className="navbar-brand" style={{color:"rgba(88, 97, 174, 1)",marginLeft:"100px"}}>LAUNDRY</h3>
         <div className="collapse navbar-collapse">

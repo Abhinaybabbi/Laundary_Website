@@ -47,7 +47,7 @@ p.heading_register {
   width: 284px;
   height: 197px;
   text-align: left;
-  font: normal normal 900 62px/80px Avenir;
+  font: normal normal 600 80px/100px Arial;
   letter-spacing: 2.48px;
   color: #5861ae;
   text-transform: capitalize;
@@ -56,12 +56,12 @@ p.heading_register {
   margin-left: 20%;
 }
 p.content1 {
-  margin-top: -43px;
+  
   margin-left: 20%;
-  width: 175px;
-  height: 59px;
+  
+  
   text-align: left;
-  font: normal normal normal 20px/32px Avenir;
+  font: normal normal normal 20px/32px Arial;
   letter-spacing: 0.8px;
   color: #565657;
   text-transform: capitalize;
@@ -74,13 +74,16 @@ p.content2 {
   width: 171px;
   height: 22px;
   text-align: left;
-  font: normal normal normal 16px/26px Avenir;
+  font: normal normal normal 16px/26px Arial;
   letter-spacing: 0.64px;
   color: #565657;
   text-transform: capitalize;
   opacity: 1;
 }
-
+.checkbox{
+  width: None;
+  height: None;
+}
 input.submit_sign {
   margin-left: 20% !important;
 }
@@ -88,7 +91,7 @@ h3.card-title1 {
   width: 157px;
   height: 44px;
   text-align: left;
-  font: normal normal medium 32px/60px Avenir;
+  font: normal normal medium 32px/60px Arial;
   letter-spacing: 1.28px;
   color: rgba(88, 97, 174, 1);
   text-transform: uppercase;

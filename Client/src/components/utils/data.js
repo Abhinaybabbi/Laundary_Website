@@ -1,7 +1,7 @@
-const items = [
+const items= [
     {
         id:1,
-        name:"Shirt",
+        title:"Shirt",
         image:"./images/Shirt.jpg",
         type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
@@ -9,14 +9,15 @@ const items = [
     },
     {
         id:2,
-        name:"TShirt",
-        image:"./images/Tshirt.jpg", type:"boolean",
+        title:"TShirt",
+        image:"./images/Tshirt.jpg",
+        type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
 
     },
     {
         id:3,
-        name:"Trousers",
+        title:"Trousers",
         image:"./images/Trousers.jpg", 
         type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
@@ -25,7 +26,7 @@ const items = [
     },
     {
         id:4,
-        name:"Jeans",
+        title:"Jeans",
         image:"./images/jeans.jpg",
          type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
@@ -33,7 +34,7 @@ const items = [
     },
     {
         id:5,
-        name:"Boxers",
+        title:"Boxers",
         image:"./images/boxers.jpg", 
         type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
@@ -41,7 +42,7 @@ const items = [
     },
     {
         id:6,
-        name:"Joggers",
+        title:"Joggers",
         image:"./images/joggers.jpg",
          type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
@@ -50,7 +51,7 @@ const items = [
 
     {
         id:7,
-        name:"Others",
+        title:"Others",
         image:"./images/cloths.jpg", 
         type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",

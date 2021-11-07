@@ -4,24 +4,21 @@ import eyeIcon from "../Assets/eyeicon.svg";
 import axios from "axios";
 
 const PastOrder = ({ orders })=> {
-    const [show,setShow] = useState(false)
+    const [show,setShow] = useState(false);
+    const [persons, setPersons] = useState([])
 
 // const [modal1, setModal1] = useState(false);
 
-    const getData=()=>{
-        axios.get('http://localhost:5000/orders')
-        .then(function (response) {            
-            console.log(response.data)
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-    }
 
     useEffect(() => {
-        getData()
-      });
+        axios.get('https://jsonplaceholder.typicode.com/users').then(response=>{            
+            console.log(response.data)
+            setPersons(response.data);
+        })
+            .catch(function (error) {
+            console.log(error);
+        })
+      },[]);
     
 
     return (
@@ -44,17 +41,17 @@ const PastOrder = ({ orders })=> {
                 </thead>
                 <tbody>
 
-                    {orders.map((order,index)=>{
+                    {persons.map(person=>{
                         return(
-                            <tr key={index} >
-                                <th scope="row">{order.orderId}</th>
-                                <td>{order.dateTime}</td>
-                                <td>{order.storeAddress.address}</td>
-                                <td>{order.storeAddress.location}</td>
-                                <td>{order.storeAddress.phone}</td>
+                            <tr key={person.id} >
+                                <th scope="row">{person.id}</th>
+                                <td>{person.name}</td>
+                                <td>{person.address.street}</td>
+                                <td>{person.address.city}</td>
+                                <td>{person.address.zipcode}</td>
                                 <td>10</td>
-                                <td>{order.total}</td>
-                                <td>{order.status[0].statusCode}</td>
+                                <td>{person.phone}</td>
+                                {/* <td>{order.status[0].statusCode}</td> */}
                                 <td> <a href="#">cancel</a> </td>
                                 <td><button className="btn" onClick={()=>{setShow(true)}}><img src={eyeIcon} alt="error" /></button></td>
                                 <Modal1 onClose={()=>setShow(false)} show={show}/>
