@@ -5,17 +5,20 @@ import Pastorders from "./components/pastorders/pastorders.js";
 import CreatOrder from "./components/pages/order/order";
 import Intro from "./components/intopage/Intro"
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route,Switch } from "react-router-dom";
 import Pricing from "./components/intopage/pricing";
 import Career from "./components/intopage/career";
 import Introone from"./components/intopage/intro1";
 import PrivateRoute from "./components/PrivateRoute";
-
+import NotFound from "./components/pages/notfound";
 
 function App() {
   return (
     <div className="App">
+      
       <BrowserRouter>
+      <Switch>
+      
         <Route exact path="/">
           <Home />
         </Route>
@@ -43,9 +46,12 @@ function App() {
 
         <PrivateRoute exact path='/order'  component={CreatOrder} />
 
+        <Route component={NotFound} />
+
         {/* <Route path="/order">
           <CreatOrder />
         </Route> */}
+        </Switch>
       </BrowserRouter>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { useHistory } from "react-router";
 import Footer from "../footer/footer";
 import Modal1 from "../modal1";
@@ -8,28 +8,45 @@ import Sidebar from "../sidebar";
 import "./order.css";
 import items from "../../utils/data";
 import Ordertable from "./ordertable";
+import axios from "axios";
 
 
 
 
 const CreateOrder = () => {
+
   const history = useHistory();
   const [show,setShow] = useState(false)
   const [modal,setModal] = useState(false)
-  const [orderItems, setOrderItems] = useState(items);
+  const [orderItem, setOrderItems] = useState(items);
+  const postData=()=>{
+    axios.post('http://localhost:5000/orders')
+    .then(function (response) {            
+        console.log(response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+}
+
+useEffect(() => {
+    postData()
+  });
+
   return(
   <div className="total">
     <Navbar/>
     <div className="main-page">
     <Sidebar/>
+    <br/>
       <div className="create-order-table">
         <div className="order-header">
           <header >
             <p>Create Order</p>
           </header>
         </div>
-      <div>
-    <Ordertable items = {orderItems} />
+      <div className="hw">
+    <Ordertable items = {orderItem} />
     </div>
 
     <div className="cancelProceed">

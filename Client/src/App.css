@@ -2,7 +2,7 @@
   background-color: rgba(255, 255, 255, 1) !important;
 }
 
-input {
+/* input {
   outline: 0;
   border-width: 0 0 2px;
   border-color: rgba(152, 152, 152, 1);
@@ -14,7 +14,7 @@ input {
   font: normal normal normal 17px/27px Open Sans;
   letter-spacing: 0.6px;
   opacity: 1;
-}
+} */
 /* }
 input:focus {
   border-color: green

@@ -9,56 +9,12 @@ import axios from "axios";
 import { getToken, setToken } from "../Utils/AuthOperations";
 
 
-// const Home = () => {
-//   const history = useHistory();
-//   const [password, setPassword] = useState("");
-//   const [email, setEmail] = useState("");
-//   function PostData(e){
-//     e.preventDefault();
-//     fetch("http://localhost:5000/signin", {
-//       method: "post",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         password,
-//         email
-//       }),
-//     })
-//       .then((res) => {
-//         const { data }= res;
-//         res.json()
-//         localStorage.setItem("Token",data.token)
-//         localStorage.setItem("user",JSON.stringify(data.user))
-//         console.log("signed in success  1");
-//         history.push("/order");
-//         })
-//       .then((data) => {
-//         if (data.error) {
-//           console.log(data.error);
-//         } else {           
-//            localStorage.setItem("Token",data.token)
-//            localStorage.setItem("user",JSON.stringify(data.user))
-//            console.log("signed in success  2");
-           
-//         }
-        
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-      
-      
-//   };
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
 
   const history = useHistory();
-  function registersub() {
-    history.push("/register");
-  }
   function signinsub(e) {
     e.preventDefault();
     console.log("Hello");
@@ -108,18 +64,17 @@ function Signin() {
 
           <a href="/register">
             {" "}
-            <input type="submit" value="Register" />{" "}
+            <input className="login-input" type="submit" value="Register" />{" "}
           </a>
         </div>
 
-        <div
-          className="flex-child"
-          style={{ background: "rgba(185, 192, 253, 0.102)" }}
-        >
-          <h2>SIGN IN </h2>
+        <div className="flex-child"
+          style={{ background: "rgba(185, 192, 253, 0.102)" }}>
+          
+          
           <div className="sign_form">
             <form>
-              <input
+              <input className="login-input"
               id="phone"
               name="email"
                 placeholder="Mobile/Email"
@@ -129,7 +84,7 @@ function Signin() {
               />
               <br />
               <br />
-              <input
+              <input className="login-input"
               name="password"
               id="pwd"
                 placeholder="Password"
