@@ -1,52 +1,58 @@
 const items = [
     {
         id:1,
-        title:"Shirt",
+        name:"Shirt",
         image:"./images/Shirt.jpg",
+        type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
 
     },
     {
         id:2,
-        title:"TShirt",
-        image:"./images/Tshirt.jpg",
+        name:"TShirt",
+        image:"./images/Tshirt.jpg", type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
 
     },
     {
         id:3,
-        title:"Trousers",
-        image:"./images/Trousers.jpg",
+        name:"Trousers",
+        image:"./images/Trousers.jpg", 
+        type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
-        service:[]
+        
 
     },
     {
         id:4,
-        title:"Jeans",
+        name:"Jeans",
         image:"./images/jeans.jpg",
+         type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
 
     },
     {
         id:5,
-        title:"Boxers",
-        image:"./images/boxers.jpg",
+        name:"Boxers",
+        image:"./images/boxers.jpg", 
+        type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
 
     },
     {
         id:6,
-        title:"Joggers",
+        name:"Joggers",
         image:"./images/joggers.jpg",
+         type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
 
     },
 
     {
         id:7,
-        title:"Others",
-        image:"./images/cloths.jpg",
+        name:"Others",
+        image:"./images/cloths.jpg", 
+        type:"boolean",
         discription: "Lorem Ipsum is simply dummy text of the ",
 
     },
