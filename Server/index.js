@@ -32,6 +32,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use("/orders", orderRouter);
 app.use("./user", userRouter);
+app.use("./user", userRouter);
 
 require("./Models/user");
 require("./Models/order");

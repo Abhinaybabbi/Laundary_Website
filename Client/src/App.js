@@ -28,18 +28,24 @@ function App() {
         <Route exact path="/home">
           <Intro />
         </Route>
-        <PrivateRoute exact path="/homepage">
+        {/* <PrivateRoute exact path="/homepage">
           <Introone/>
-        </PrivateRoute>
+        </PrivateRoute> */}
         <Route path="/register">
           <Register />
         </Route>
-        <PrivateRoute path="/pastorders">
+        {/* <PrivateRoute path="/pastorders">
           <Pastorders />
-        </PrivateRoute>
-        <Route path="/order">
+        </PrivateRoute> */}
+        <PrivateRoute exact path='/homepage'  component={Introone} />
+
+        <PrivateRoute exact path='/pastorders'  component={Pastorders} />
+
+        <PrivateRoute exact path='/order'  component={CreatOrder} />
+
+        {/* <Route path="/order">
           <CreatOrder />
-        </Route>
+        </Route> */}
       </BrowserRouter>
     </div>
   );

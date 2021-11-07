@@ -1,37 +1,33 @@
 const mongoose = require("mongoose");
-const orderSchema = new mongoose.Schema({
-  totalItems: {
-    type:Number,
-    required: true,
-  },
-  totalPrice: {
-    type:Number,
-    required: true,
-  },
-  items: [{
-      item:{type:mongoose.Schema.Types.ObjectId,ref:"item"}
-   }
-  ],
- 
-    
-  // store : {type:mongoose.Schema.Types.ObjectId,ref:"store"},
-    
-  
-  
-  user:{type: mongoose.Schema.Types.ObjectId, ref:"user"},
 
-  address : {type:String},
-
-  cancellation: {type:Boolean, default:false},
-  status: {
-    type:String,
-    enum: [ "pending", "pickedUp", "inProgress", "readyToDeliver", "delivered", "cancelled" ],
-    Default:"pending"
-  }  
-},{  timestamps:true,
-  // { currentTime: () => Math.floor(Date.now() / 1000) }
-}
+const OrderSchema = mongoose.Schema(
+  {
+    order_id: { type: String, required: true },
+    user_id: { type: mongoose.Types.ObjectId, reference: "User" },
+    info: [
+      {
+        item: { type: String },
+        quantity: { type: Number },
+        wash: { type: Boolean, default: false },
+        iron: { type: Boolean, default: false },
+        dryclean: { type: Boolean, default: false },
+        bleach: { type: Boolean, default: false },
+        price: { type: Number, required: true },
+      },
+    ],
+    address: { type: String },
+    total_quantity: { type: Number },
+    total_price: { type: Number },
+    status: {
+      type: String,
+      enum: ["Pending", "Processing", "Ready to Deliver", "Delivered", "Cancelled"],
+      default: "Pending",
+      required: true,
+    },
+  },
+  { timestamps: true }
 );
 
-const Order = mongoose.model("Order",orderSchema)
-module.exports=Order;
+const order = mongoose.model("order", OrderSchema);
+
+module.exports = order;
