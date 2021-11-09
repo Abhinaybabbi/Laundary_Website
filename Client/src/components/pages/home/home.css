@@ -1,53 +1,46 @@
-
-
-  
-
 .flex-container {
-    display: flex;
-    position: relative;
-  }
-  
-  .flex-child {
-    flex: 1;
-  }
-  
-  .flex-child:first-child {
-    margin-right: 20px;
-  }
-  .flex-child:second-child {
-    background: rgba(185, 192, 253, 0.102) 0% 0% no-repeat padding-box;
-    opacity: 1;
-    /* width: 710px; */
-    /* height: 769px; */
-    
-  }
-  
-  .signform {
-    width: 50px;
-    height: 50px;
-    
-    top: 50%;
-    left: 50%;
-    margin: -50px 0 0 200px;
-  }
+  display: flex;
+  position: relative;
+}
 
-  
+.flex-child {
+  flex: 1;
+}
+
+.flex-child:first-child {
+  margin-right: 20px;
+}
+.flex-child:second-child {
+  background: rgba(185, 192, 253, 0.102) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  /* width: 710px; */
+  /* height: 769px; */
+}
+
+.signform {
+  width: 50px;
+  height: 50px;
+
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 200px;
+}
 
 p.heading {
-    width: 411px;
-    height: 257px;
-    text-align: center;
-    /* font-family: Arial, Helvetica, Arial-serif; */
-    font: normal normal 900 100px/120px Arial;
-    letter-spacing: 0px;
-    color: rgba(88, 97, 174, 1);
-    text-transform: capitalize;
-    opacity: 1;
-    margin-left: 152px;
-    margin-top: 155px;
-  }
+  width: 411px;
+  height: 257px;
+  text-align: center;
+  /* font-family: Arial, Helvetica, Arial-serif; */
+  font: normal normal 900 100px/120px Arial;
+  letter-spacing: 0px;
+  color: rgba(88, 97, 174, 1);
+  text-transform: capitalize;
+  opacity: 1;
+  margin-left: 152px;
+  margin-top: 155px;
+}
 
-  p.con{
+p.con {
   margin-top: 14px;
   margin-left: 151px;
   width: 335px;
@@ -58,9 +51,9 @@ p.heading {
   color: rgba(86, 86, 87, 1);
   text-transform: capitalize;
   opacity: 1;
-  }
-  p.acc{
-    margin-top: 74px;
+}
+p.acc {
+  margin-top: 74px;
   margin-left: 152px;
   width: 189px;
   height: 22px;
@@ -70,11 +63,11 @@ p.heading {
   color: rgba(86, 86, 87, 1);
   text-transform: capitalize;
   opacity: 1;
-  }
-  input[type=submit]{
-   
-    border: 2px solid rgba(69, 82, 193, 1);
-    margin-top: 16.5px;
+}
+input[type="submit"] {
+  cursor: pointer;
+  border: 2px solid rgba(69, 82, 193, 1);
+  margin-top: 16.5px;
   border-radius: 4px;
   opacity: 1;
   margin-left: 152px;
@@ -85,9 +78,11 @@ p.heading {
   letter-spacing: 0.3px;
   color: rgba(69, 82, 193, 1);
   opacity: 1;
-  }
-  .sign_IN{
-    background: rgba(69, 82, 193, 1) 0% 0% no-repeat padding-box !important;
+}
+
+.sign_IN {
+  cursor: pointer;
+  background: rgba(69, 82, 193, 1) 0% 0% no-repeat padding-box !important;
   border-radius: 4px !important;
   opacity: 1 !important;
   width: 150px !important;
@@ -99,41 +94,38 @@ p.heading {
   opacity: 1;
   margin-left: 75px !important;
   margin-top: 70px !important;
-  }
-  .login-input{
-    outline: 0;
-    background-color: rgba(185, 192, 253, 0.102);
-    border-width: 0 0 2px;
-    border-color: rgba(152, 152, 152, 1);
-    color: rgba(119, 131, 143, 1);
-    margin-top: 20px;
-    width: 322px;
-    height: 27px;
-    text-align: left;
-    font: normal normal normal 17px/27px Open Arial;
-    letter-spacing: 0.6px;
-    opacity: 1;
-  } 
+}
+.login-input {
+  outline: 0;
+  background-color: rgba(185, 192, 253, 0.102);
+  border-width: 0 0 2px;
+  border-color: rgba(152, 152, 152, 1);
+  color: rgba(119, 131, 143, 1);
+  margin-top: 20px;
+  width: 322px;
+  height: 27px;
+  text-align: left;
+  font: normal normal normal 17px/27px Open Arial;
+  letter-spacing: 0.6px;
+  opacity: 1;
+}
 
-  
-.sign-in-title{
-    font: normal normal medium 32px/60px Arial;
-    letter-spacing: 1px;
-    color: rgba(69, 82, 193, 1);
-    opacity: 1;
-    
-  }
-  
-  .pass {
-    width: 140px;
-    height: 22px;
-    text-align: left;
-    font: normal normal medium 16px/26px Arial;
-    letter-spacing: 0.64px;
-    color: rgba(69, 82, 193, 1);
-    text-transform: capitalize;
-    opacity: 1;
-    margin-left: 380%;
-    margin-top: 10px;
-  }
-  
+.sign-in-title {
+  font: normal normal medium 32px/60px Arial;
+  letter-spacing: 1px;
+  color: rgba(69, 82, 193, 1);
+  opacity: 1;
+}
+
+.pass {
+  width: 140px;
+  height: 22px;
+  text-align: left;
+  font: normal normal medium 16px/26px Arial;
+  letter-spacing: 0.64px;
+  color: rgba(69, 82, 193, 1);
+  text-transform: capitalize;
+  opacity: 1;
+  margin-left: 380%;
+  margin-top: 10px;
+}

@@ -23,8 +23,8 @@ const Navbar = () => {
         <div className="dropdown">
         <button className="dropbtn">Options</button>
         <div className="dropdown-content">
-        <a href="/homepage">Account</a>
-        <button className="btn" onClick={()=>localStorage.clear()}><a href="/">Sign out</a></button>
+        <a className="signoutbtn" href="/homepage">Account</a>
+        <a className="signoutbtn" onClick={()=>localStorage.clear()} href="/">Sign out</a>
         </div>
         </div>
         </li>

@@ -10,17 +10,26 @@ const OrderSchema = mongoose.Schema(
         quantity: { type: Number },
         wash: { type: Boolean, default: false },
         iron: { type: Boolean, default: false },
-        dryclean: { type: Boolean, default: false },
+        fold: { type: Boolean, default: false },
         bleach: { type: Boolean, default: false },
         price: { type: Number, required: true },
+      },
+    ],
+    store :[
+      {
+      location :{type:String},
+      city :{type:String},
+      address:{type:String},
+      phone:{type:Number},
       },
     ],
     address: { type: String },
     total_quantity: { type: Number },
     total_price: { type: Number },
-    status: {
+     
+    statues: {
       type: String,
-      enum: ["Pending", "Processing", "Ready to Deliver", "Delivered", "Cancelled"],
+      enum: ["Ready to Pickup", "Processing", "Ready to Deliver", "Delivered", "Cancelled"],
       default: "Pending",
       required: true,
     },

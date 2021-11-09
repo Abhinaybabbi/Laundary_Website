@@ -21,30 +21,31 @@ router.get("/", requireLogin, async function (req, res) {
   }
 });
 
-router.post("/", requireLogin, async function (req, res) {
+router.post("/", requireLogin, async(req, res,next)=> {
+  try{
   const number = await Order.countDocuments();
   let order_num = "AB0" + (number + 1);
 
-  const { Wash, Iron, Dryclean, Bleach } = {
+  const { Wash, Iron, Fold, Bleach } = await{
     Wash: 20,
     Iron: 15,
-    Dryclean: 10,
+    Fold: 10,
     Bleach: 25,
   };
   const Info = req.body.info;
-  const Price = 0;
-  const Quantity = 0;
+  let Price = 0;
+  let Quantity = 0;
 
   Info.forEach((inf) => {
-    const total = 0;
+    let total = 0;
     if (inf.wash) {
       total += inf.quantity * Wash;
     }
     if (inf.iron) {
       total += inf.quantity * Iron;
     }
-    if (inf.dryclean) {
-      total += inf.quantity * Dryclean;
+    if (inf.fold) {
+      total += inf.quantity * Fold;
     }
     if (inf.bleach) {
       total += inf.quantity * Bleach;
@@ -54,16 +55,18 @@ router.post("/", requireLogin, async function (req, res) {
     Quantity += parseInt(inf.quantity);
   });
 
-  const { address, status } = req.body;
+  const { address, statues,store } = req.body;
   const order = await Order.create({
     order_id: order_num,
     info: Info,
     total_quantity: Quantity,
     user_id: mongoose.Types.ObjectId(req.user[0]._id),
-    total_quantity: Quantity,
+    // total_quantity: Quantity,
     total_price: Price,
-    address,
-    status,
+    address:address,
+    statues:statues,
+    store:store,
+    
   });
 
   res.json({
@@ -72,6 +75,12 @@ router.post("/", requireLogin, async function (req, res) {
       order,
     },
   });
+}catch(err){
+  next(err);
+  console.log(err.message)
+
+}
+
 });
 
 router.delete("/:id", requireLogin, async function (req, res) {
@@ -79,7 +88,7 @@ router.delete("/:id", requireLogin, async function (req, res) {
   if (!post) {
     return res.status(404).json({
       status: "failed",
-      message: "Post Not Found",
+      message: "order Not Found",
     });
   }
 

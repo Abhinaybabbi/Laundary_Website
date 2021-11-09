@@ -29,6 +29,7 @@ p.terms {
 
 button.register1 {
   width: 150px;
+  cursor: pointer;
   height: 50px;
   background: rgba(88, 97, 174, 1) 0% 0% no-repeat padding-box;
   border-radius: 4px;
@@ -56,10 +57,8 @@ p.heading_register {
   margin-left: 20%;
 }
 p.content1 {
-  
   margin-left: 20%;
-  
-  
+
   text-align: left;
   font: normal normal normal 20px/32px Arial;
   letter-spacing: 0.8px;
@@ -80,11 +79,13 @@ p.content2 {
   text-transform: capitalize;
   opacity: 1;
 }
-.checkbox{
+.checkbox {
+  cursor: pointer;
   width: None;
   height: None;
 }
 input.submit_sign {
+  cursor: pointer;
   margin-left: 20% !important;
 }
 h3.card-title1 {

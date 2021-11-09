@@ -13,7 +13,6 @@ function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
-
   const history = useHistory();
   function signinsub(e) {
     e.preventDefault();
@@ -33,7 +32,7 @@ function Signin() {
           setUser(response.data);
           setToken(response.data.token);
           console.log("token", getToken());
-          history.push("/order");
+          history.push("/homepage");
         }
     
       })
@@ -79,7 +78,6 @@ function Signin() {
               name="email"
                 placeholder="Mobile/Email"
                 type="text"
-                // value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <br />
