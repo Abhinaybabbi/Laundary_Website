@@ -1,19 +1,52 @@
 import React, { useState } from "react";
 import "./modal1.css";
 import OrderConfirmModal from "./OrderConfirmModal";
-import Addresbar from"./addressbar";
+import Storename from"./addressSelector";
 // import { useHistory } from "react-router";
 import axios from "axios";
 import {getToken} from "./Utils/AuthOperations";
 import Inorderitems from "./order/Inorderitems";
 
-
+// const selectstore = { }
 const Modal1 = (props) =>{
     const [show,setShow]= useState(false)
     // const history = useHistory();
 
+
+    const storedetails = [
+        {
+            id:1,
+            location:"Kothapet",
+            phone:"+91 99999999",
+            city:"Hyderabad",
+            Address: "1-874/305 jaipur colony near Busstop ",
+    
+        },
+        {
+            id:2,
+            location:"Dilsukhnagar",
+            phone:"+91 988745999",
+            city:"Hyderabad",
+            Address: "4-874/A5 watson street near Bank of America ",
+    
+        },
+        {
+            id:3,
+            location:"Malakpet",
+            phone:"+91 957415439",
+            city:"Hyderabad",
+            Address: "A45/1-05 Bank colony near MetroStation ",
+    
+        },
+    ];
+
+
+
     const confirmOrder=()=>{
         setShow(true);
+        // const storeselected=[];
+        // storeselected.push({store: store })
+        
         const placeOrderData=[];
         props.coData.forEach((order)=>{
             placeOrderData.push({ item: order.name, ...order.value});
@@ -23,7 +56,7 @@ const Modal1 = (props) =>{
             {
                 info:placeOrderData,
                 address: "Hyderabad",
-                status: "Pending",
+                status: "Ready to Pickup",
                 store:"store address",
             },
             { headers : { Authorization: `Bearer ${getToken()}`}}
@@ -32,6 +65,9 @@ const Modal1 = (props) =>{
         console.log(placeOrderData)
 
     }
+    // function handlestore(props){
+    //      return;    
+    //   }
 
     
     if (!props.show){
@@ -44,7 +80,31 @@ const Modal1 = (props) =>{
                  <h4 className="modal-title">Summary</h4>
                  <a href="#"><button className="btn" onClick={props.onClose}>X</button></a>
              </div>
-             <Addresbar  />
+                <div className="store-details">
+                    <div>
+                   
+                        <select className="form-select-style" aria-label="Default select example">
+                        { storedetails.map((store)=>(
+                            <Storename id={store.id}
+                            location={store.location}
+                            // selectedstore={handlestore}
+                             />
+                            
+                           
+                        )
+                        )}                             
+                        </select>
+                       
+                    </div>
+                    <div className="store-details-element"> 
+                        <span className="style-bold">Phone:</span>
+                        <span>+91 99999999</span>
+                    </div>
+                    <div className="store-details-element">
+                        <span className="style-bold">Store Address:</span>
+                        <span>Near phone booth 10th road</span>
+                    </div>
+                </div>
              <div className="order-details">
                  <h5>Order Details</h5>
                  <table>
