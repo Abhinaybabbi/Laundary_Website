@@ -12,27 +12,27 @@ import "./order.css";
 function Ordercomponent(props) {
   const [wash, setWash] = useState(false);
   const [iron, setIron] = useState(false);
-  const [pack, setPack] = useState(false);
+  const [bleach, setBleach] = useState(false);
   const [fold, setFold] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState("---");
   const washCost = 20;
-  const pressCost = 15;
+  const ironCost = 15;
   const foldCost = 10;
-  const packCost = 25;
+  const bleachCost = 25;
 
   function costCalculation() {
-    console.log(quantity, wash, iron, pack);
+    console.log(quantity, wash, iron, bleach);
     let cost = 0;
     if (wash) {
       cost += quantity * washCost;
     }
     if (iron) {
-      cost += quantity * pressCost;
+      cost += quantity * ironCost;
     }
 
-    if (pack) {
-      cost += quantity * packCost;
+    if (bleach) {
+      cost += quantity * bleachCost;
     }
     if (fold) {
       cost += quantity * foldCost;
@@ -43,18 +43,29 @@ function Ordercomponent(props) {
   function washChange() {
     setWash(!wash);
   }
-  function pressChange() {
+  function ironChange() {
     setIron(!iron);
   }
 
-  function packChange() {
-    setPack(!pack);
+  function bleachChange() {
+    setBleach(!bleach);
   }
   function foldChange() {
     setFold(!fold);
   }
   useEffect(() => {
     costCalculation();
+    props.handleClick({
+      name: props.name,
+      value: {
+        quantity: quantity,
+        wash: wash,
+        iron: iron,
+        fold: fold,
+        bleach: bleach,
+        price: price,
+      },
+    });
   });
 
   return (
@@ -63,7 +74,7 @@ function Ordercomponent(props) {
       <td>
         <div className="row">
           <div className="col-lg-2">
-            <img    name="item"
+            <img name="item"
               type="text"
               src={`${props.image}`}
               alt="shirt"
@@ -72,7 +83,7 @@ function Ordercomponent(props) {
           </div>
           <div className="col-lg-10">
             <h5>{props.name}</h5>
-            <p>{props.discription}</p>
+            <p>lorum inpdfi fdse ndsfjfonffi{props.discription}</p>
           </div>
         </div>
       </td>
@@ -81,10 +92,13 @@ function Ordercomponent(props) {
           type="text"
           name="quantity"
           className="item-quantity"
+          placeholder="Qty"
+          // value={quantity}
           onChange={(e) => {
             setQuantity(e.target.value);
+
           }}
-          value={quantity}
+          
         />
       </td>
       <td>
@@ -103,12 +117,12 @@ function Ordercomponent(props) {
           <div className="col-lg-3">
             <img
               type="Boolean"
-              name="press"
+              name="iron"
               src={iron ? Iron1 : Iron}
               onClick={() => {
-                pressChange();
+                ironChange();
               }}
-              alt="press"
+              alt="iron"
             />
           </div>
           <div className="col-lg-3">
@@ -125,17 +139,17 @@ function Ordercomponent(props) {
           <div className="col-lg-3">
             <img
               type="Boolean"
-              name="pack"
-              src={pack ? Liquid1 : Liquid}
+              name="bleach"
+              src={bleach ? Liquid1 : Liquid}
               onClick={() => {
-                packChange();
+                bleachChange();
               }}
-              alt="pack"
+              alt="bleach"
             />
           </div>
         </div>
       </td>
-      <td>{price}</td>
+      <td><p>{quantity} X Service = {price}</p></td>
       <td>
         
       </td>

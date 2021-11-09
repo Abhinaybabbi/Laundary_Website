@@ -2,23 +2,46 @@ import Modal1 from '../pages/summerymodal';
 import React, { useState,useEffect } from 'react';
 import eyeIcon from "../Assets/eyeicon.svg";
 import axios from "axios";
+import { getToken } from '../pages/Utils/AuthOperations';
 
-const PastOrder = ({ orders })=> {
+const PastOrder = ({ _id, order_id, phone,address, total_quantity, status,  total_price,  createdDate,})=> {
     const [show,setShow] = useState(false);
-    const [persons, setPersons] = useState([])
+    const [orders, setOrders] = useState([])
+    const [cancel,setCancel]= useState(false);
 
 // const [modal1, setModal1] = useState(false);
+async function Cancel() {
+    setCancel(true);
+  }
 
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/users').then(response=>{            
+        axios.get('http://localhost:5000/orders',{ 
+            headers : { 
+                "Content-Type":"application/json",
+                Authorization: `Bearer ${getToken()}`,
+        
+        },
+        
+        })
+            .then((response)=>{            
             console.log(response.data)
-            setPersons(response.data);
+            setOrders(response.data.data.orders);
         })
             .catch(function (error) {
             console.log(error);
         })
-      },[]);
+      });
+      async function clickHandle() {
+        setShow(true);
+        axios
+          .get(`http://localhost:5000/orders/`, {
+            headers: { Authorization: `Bearer ${getToken()}` },
+          })
+          .then((res) => {
+            setOrders(res.data.data.details);
+          });
+      }
     
 
     return (
@@ -41,19 +64,23 @@ const PastOrder = ({ orders })=> {
                 </thead>
                 <tbody>
 
-                    {persons.map(person=>{
+                    {orders.map(order=>{
                         return(
-                            <tr key={person.id} >
-                                <th scope="row">{person.id}</th>
-                                <td>{person.name}</td>
-                                <td>{person.address.street}</td>
-                                <td>{person.address.city}</td>
-                                <td>{person.address.zipcode}</td>
+                            <tr key={order.order_id} >
+                                <th scope="row">{order.order_id}</th>
+                                {/* <td>{order.name}</td> */}
+                                <td>{order.address}</td>
+                                <td>{order.total_price}</td>
+                                <td>{order.total_quantity}</td>
                                 <td>10</td>
-                                <td>{person.phone}</td>
+                                <td>{order.statues}</td>
                                 {/* <td>{order.status[0].statusCode}</td> */}
-                                <td> <a href="#">cancel</a> </td>
-                                <td><button className="btn" onClick={()=>{setShow(true)}}><img src={eyeIcon} alt="error" /></button></td>
+                                <td>
+                                    <p class="text-danger font-weight-bold" onClick={Cancel}>
+                                        {order.statues === "Pending" ? "Cancel Order" : "--"}
+                                    </p>
+                                </td>
+                                <td><button className="btn" onClick={clickHandle}><img src={eyeIcon} alt="error" /></button></td>
                                 <Modal1 onClose={()=>setShow(false)} show={show}/>
                             </tr>
                         )
