@@ -83,9 +83,10 @@ function Ordertable() {
 
 
 ];
-  return ( <div>
-  <table className="ordertable">
-              <thead>
+  return ( <div className="ordertable123">
+    <span><h5>Create Order</h5></span>
+  <table className="table">
+              <thead className="table-dark">
                 <tr className="table-header">
                   <th></th>
                   <th>Product Types</th>

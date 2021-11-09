@@ -15,14 +15,15 @@ const OrderSchema = mongoose.Schema(
         price: { type: Number, required: true },
       },
     ],
-    store :[
+    store :
       {
       location :{type:String},
       city :{type:String},
       address:{type:String},
-      phone:{type:Number},
+      phone:{type:String},
       },
-    ],
+    
+    
     address: { type: String },
     total_quantity: { type: Number },
     total_price: { type: Number },
@@ -30,7 +31,7 @@ const OrderSchema = mongoose.Schema(
     statues: {
       type: String,
       enum: ["Ready to Pickup", "Processing", "Ready to Deliver", "Delivered", "Cancelled"],
-      default: "Pending",
+      default: "Ready to Pickup",
       required: true,
     },
   },
