@@ -9,7 +9,7 @@ const OrderConfirmModal = (props) =>{
         return null
     }
     return(
-        <div className="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div className="modal" id="exampleModalCenter"  role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
        
             <img className="checkmark" src={order}/>
             <br/>

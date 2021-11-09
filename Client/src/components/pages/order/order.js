@@ -21,9 +21,7 @@ const CreateOrder = () => {
     <br/>
       <div className="create-order-table">
         <div className="order-header">
-          <header >
-            <p>Create Order</p>
-          </header>
+          
         </div>
       <div className="hw">
     <Ordertable/>

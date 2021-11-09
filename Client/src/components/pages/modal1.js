@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./modal1.css";
 import OrderConfirmModal from "./OrderConfirmModal";
-import Storename from"./addressSelector";
+import "./newmodal.css"
+// import Storename from"./addressSelector";
 // import { useHistory } from "react-router";
 import axios from "axios";
 import {getToken} from "./Utils/AuthOperations";
@@ -10,39 +11,51 @@ import Inorderitems from "./order/Inorderitems";
 // const selectstore = { }
 const Modal1 = (props) =>{
     const [show,setShow]= useState(false)
+    const [useraddress,setUseraddress]=useState("")
+    const [option,setOption] = useState()
+
+    let address=""
+    let phone=""
+    let store=[]
+    let city=""
+    let location=""
+
+    if(option==="dilsukhnagar"){
+        address ="1-5-74/Dilsukhnagar"
+        phone="+91 98955654"
+        store={address :"1-5-74/Dilsukhnagar",
+        phone:"+91 98955654",city:"Hyderabad",location:"dilsukhnagar"};
+        console.log(store);
+    }else if (option=== "malakpet"){
+        address = "1-5-74/malakpet near busstop"
+        phone="+91 989515664"
+        store={address : "1-5-74/malakpet near busstop",
+        phone:"+91 989515664",city:"Hyderabad",location:"malakpet"};
+        console.log(store);
+
+    }else if (option=== "lbnagar"){
+        address = "1-5-74/ lb nagar"
+        phone="+91 956625654"
+        store={address : "1-5-74/ lb nagar",
+        phone:"+91 956625654",city:"Hyderabad",location:"lbnagar"};
+        console.log(store);
+
+    }
+    
+
+function handleChange(event){
+    setOption(event.target.value)
+}
+
+
     // const history = useHistory();
 
 
-    const storedetails = [
-        {
-            id:1,
-            location:"Kothapet",
-            phone:"+91 99999999",
-            city:"Hyderabad",
-            Address: "1-874/305 jaipur colony near Busstop ",
-    
-        },
-        {
-            id:2,
-            location:"Dilsukhnagar",
-            phone:"+91 988745999",
-            city:"Hyderabad",
-            Address: "4-874/A5 watson street near Bank of America ",
-    
-        },
-        {
-            id:3,
-            location:"Malakpet",
-            phone:"+91 957415439",
-            city:"Hyderabad",
-            Address: "A45/1-05 Bank colony near MetroStation ",
-    
-        },
-    ];
-
+   
 
 
     const confirmOrder=()=>{
+        
         setShow(true);
         // const storeselected=[];
         // storeselected.push({store: store })
@@ -55,14 +68,15 @@ const Modal1 = (props) =>{
             "http://localhost:5000/orders",
             {
                 info:placeOrderData,
-                address: "Hyderabad",
-                status: "Ready to Pickup",
-                store:"store address",
+                address: useraddress,
+                statues: "Ready to Pickup",
+                store:store,
+                
             },
             { headers : { Authorization: `Bearer ${getToken()}`}}
         );
         console.log("order posted to API")
-        console.log(placeOrderData)
+        console.log(address)
 
     }
     // function handlestore(props){
@@ -83,26 +97,21 @@ const Modal1 = (props) =>{
                 <div className="store-details">
                     <div>
                    
-                        <select className="form-select-style" aria-label="Default select example">
-                        { storedetails.map((store)=>(
-                            <Storename id={store.id}
-                            location={store.location}
-                            // selectedstore={handlestore}
-                             />
-                            
-                           
-                        )
-                        )}                             
-                        </select>
+                    <select  className="form-select-style" aria-label="Default select example" name='store selector' value={option} onChange={handleChange}>
+                        <option value="dilsukhnagar">dilsukhnagar</option>
+                        <option value="malakpet">malakpet</option>
+                        <option value="lbnagar">lbnagar</option>                        
+                    </select>
                        
                     </div>
                     <div className="store-details-element"> 
                         <span className="style-bold">Phone:</span>
-                        <span>+91 99999999</span>
+                        <span>{phone}</span>
                     </div>
                     <div className="store-details-element">
                         <span className="style-bold">Store Address:</span>
-                        <span>Near phone booth 10th road</span>
+                       
+                        <span>{address}</span>
                     </div>
                 </div>
              <div className="order-details">
@@ -145,12 +154,20 @@ const Modal1 = (props) =>{
                  </div>
              </div>
              <div className="modal-footer1">                 
-                 <div className="Address">
+                 
                     <div className="p-0 m-2 card-body">
                      <p className="style-bold m-1">Address :</p>
                     </div>
-                    <div className="p-2 m-1 card  custom-card col-md-4">
-                             <p className="card-text align-left">1-878/45, 10th street,JP Nagar,Bangalore</p>  </div>
+                    <div className="Address">
+                    {/* <div className="p-2 m-1 card  custom-card col-md-4 shadow p-3 mb-5 bg-white rounded" >
+                             <p className="card-text align-left" onClick={(e)=>setAddress(e.target.value)}>1-878/45, 10th street,JP Nagar,Bangalore</p>
+                             
+                    </div> */}
+                   
+                             
+                             <input  className="Address-input" placeholder="Enter Address here" type="text" value={useraddress} onChange={(e)=>setUseraddress(e.target.value)}></input> 
+                   
+                             
                     </div>
                                   
              </div>
@@ -163,4 +180,8 @@ const Modal1 = (props) =>{
         </div>
     )
 }
+
+
+
 export default Modal1;
+
