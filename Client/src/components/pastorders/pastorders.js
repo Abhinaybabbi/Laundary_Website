@@ -1,19 +1,17 @@
-import React,{useState} from "react";
-import { useHistory } from "react-router";
+// import React,{useState} from "react";
 import Footer from "../pages/footer/footer";
 import Navbar from "../pages/navBar1";
 import Sidebar from "../pages/sidebar";
 import "./pastorders.css";
 import Pastordertable from "./pastOrder";
-import orders from "../utils/orderdata";
+// import orders from "../utils/orderdata";
 
 
 
 const Pastorders = () => {
-  const history = useHistory();
   
 
-  const [orderItems, setOrderItems] = useState(orders);
+  // const [orderItems, setOrderItems] = useState(orders);
 
     return(
 
@@ -22,11 +20,10 @@ const Pastorders = () => {
   <div className="main-page">
   <Sidebar/>
   <div className="create-order-table">
-    <div className="order-header">
-              
+    <div className="order-header">              
        
       </div>
-      <Pastordertable orders = {orderItems}/>
+      <Pastordertable />
   </div>
 </div>
 <Footer />
