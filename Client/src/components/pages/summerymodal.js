@@ -1,8 +1,10 @@
 import React from "react";
 import "./modal1.css";
+// import Inorderitems from ""
 
 
-const Modal1 = props =>{
+const Modal1 = props =>{   
+        
 
     if (!props.show){
         return null
@@ -17,11 +19,11 @@ const Modal1 = props =>{
              <div className=" p-1 m-2">
              <div className="store-details-element"> 
             <span className="style-bold">Phone:</span>
-            <span>+91 99999999</span>
+            <span>{props.store.phone}</span>
         </div>
         <div className="store-details-element">
             <span className="style-bold">Store Address:</span>
-            <span>Near phone booth 10th road</span>
+            <span>{props.store.address}</span>
         </div>
              </div>
 
@@ -30,33 +32,20 @@ const Modal1 = props =>{
                  <div className="modal-body-table">
                      <table className="table">
                          <tbody>
-                           
-                                 <tr>
-                                     <td> Shirt</td>
-                                     <td> Washing,Iron</td>
-                                     <td className="move-right style-bold"> 5x20 =</td>
-                                     <td className="text-color style-bold"> 100</td>
-                                 </tr>
-                                 <tr>
-                                     <td> Jeans</td>
-                                     <td> Washing,Iron</td>
-                                     <td className="move-right style-bold"> 5x20 =</td>
-                                     <td className="text-color style-bold"> 100</td>
-                                 </tr>
-                                 <tr>
-                                     <td> Joggers</td>
-                                     <td> Washing,Iron</td>
-                                     <td className="move-right style-bold"> 5x20 =</td>
-                                     <td className="text-color style-bold"> 100</td>
-                                 </tr>
-
-                             
+                         {props.info.length > 0 &&
+                  props.info.map(
+                     (inorderitem)=>inorderitem.value.quantity >0 && (inorderitem.value.wash || inorderitem.value.iron || inorderitem.value.fold || inorderitem.value.bleach )
+                      && (
+                        <Inorderitems   name={inorderitem.name} type={inorderitem.value} cost={inorderitem.value.price} quantity={inorderitem.value.quantity}   />
+                        
+                     )
+                 )}
                              {/* total price row  */}
                              <tr>
                                         <td></td>
                                         <td></td>
                                         <td className="move-right">Sub total:</td>
-                                        <td className="style-bold"> 300 </td>
+                                        <td className="style-bold">{props.total_price} </td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -68,7 +57,7 @@ const Modal1 = props =>{
                                         <td></td>
                                         <td></td>
                                         <td className="move-right">Total:</td>
-                                        <td> RS 390 </td>
+                                        <td>{props.total_price+90}</td>
                                     </tr>
                          </tbody>
                      </table>
@@ -80,8 +69,8 @@ const Modal1 = props =>{
                      <span>Address :</span>
                     </div>
                     <div className="p-2 m-1 card  custom-card col-md-4">
-                        <h4>Home</h4>
-                        <p className="card-text align-left">1-878/45, 10th street,JP Nagar,Bangalore</p>  </div>
+                        <h4>Pickup Address</h4>
+                        <p className="card-text align-left">{props.address}</p>  </div>
                     </div>
                                   
              </div>
