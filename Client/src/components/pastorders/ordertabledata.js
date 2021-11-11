@@ -7,6 +7,7 @@ import React, { useState,useEffect } from 'react';
 import axios from "axios";
 import { getToken } from '../pages/Utils/AuthOperations';
 import Inorderitems from "../pages/order/Inorderitems";
+import Progressbar from "../pages/progressbar/progressbar";
 
 
 
@@ -44,7 +45,38 @@ function Ordertabledata({     _id,    order_id,    store,  info,    address,    
             );
           }
         
-         
+          function Readytopickup(props) {
+            return     <Progressbar bgcolor="#5861AE" progress='10' text='(Ready_to_Pickup)'height={8} />
+            ;
+          }
+          
+          function Processing(props) {
+            return     <Progressbar bgcolor="#5861AE" progress='50' text='(Processing)'height={8} />
+            ;
+          }
+          
+          function Delivered(props) {
+            return     <Progressbar bgcolor="#5861AE" progress='99' text="Delivered" height={8} />
+            ;
+          }
+          function Cancelled(props) {
+            return     <Progressbar bgcolor="red" progress='99' text="Cancelled" height={8} />
+            ;
+          }
+          
+          function Viewprogress(props) {
+            const statues = props.statues;
+            if (statues==="Ready to Pickup") {
+              return <Readytopickup />;
+            }else if(statues==="Delivered"){ 
+            return <Delivered />;
+          }else if(statues==="Processing"){ 
+            return <Processing />;
+          }
+          else if(statues==="Cancelled"){ 
+            return <Cancelled />;
+          }
+        }
         
     
 
@@ -86,6 +118,7 @@ return(
             Summary
           </Modal.Title>
         </Modal.Header>
+        
         <Modal.Body>
              <div className="confirm_page">
             <div class="row mainadd">
@@ -104,6 +137,16 @@ return(
               </div>
             </div>
           </div>
+          <div className="progressbar">
+            <h6 className="heading">Order Progress :</h6>
+            
+              {/* <Progressbar bgcolor="#5861AE" progress='95'  height={30} />
+              <Progressbar bgcolor="#5861AE" progress='60'  height={30} />
+              <Progressbar bgcolor="#5861AE" progress='50'  height={30} />
+              <Progressbar bgcolor="#5861AE" progress='85'  height={30} /> */}
+              <Viewprogress statues={statues} />
+              
+           </div>
 
              <div className="order-details">
                  <span>Order Details</span>
