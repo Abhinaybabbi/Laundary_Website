@@ -50,8 +50,17 @@ function Ordertabledata({     _id,    order_id,    store,  info,    address,    
             ;
           }
           
+          function Processing(props) {
+            return     <Progressbar bgcolor="#5861AE" progress='50' text='(Processing)'height={8} />
+            ;
+          }
+          
           function Delivered(props) {
             return     <Progressbar bgcolor="#5861AE" progress='99' text="Delivered" height={8} />
+            ;
+          }
+          function Cancelled(props) {
+            return     <Progressbar bgcolor="red" progress='99' text="Cancelled" height={8} />
             ;
           }
           
@@ -61,6 +70,11 @@ function Ordertabledata({     _id,    order_id,    store,  info,    address,    
               return <Readytopickup />;
             }else if(statues==="Delivered"){ 
             return <Delivered />;
+          }else if(statues==="Processing"){ 
+            return <Processing />;
+          }
+          else if(statues==="Cancelled"){ 
+            return <Cancelled />;
           }
         }
         
