@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./newmodal.css";
 const Addressbar = () => {
+    const [storeAddress,setStoreAddress]=useState("")
     return(
         
         <div className="store-details">

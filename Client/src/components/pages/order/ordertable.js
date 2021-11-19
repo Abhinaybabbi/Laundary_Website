@@ -1,11 +1,26 @@
-import React from "react";
+import React,{useCallback, useState} from "react";
 import Ordercomponent from "./ordercomponent";
+import Modal1 from "../modal1";
+// import OrderConfirmModal from "../OrderConfirmModal";
+import "./order.css"
+import { useHistory } from "react-router";
+
 // import Summaryorder from "./summaryorder";
 
 const order = { orderId: "orderId", userId: "userId", details: new Map() };
-const orderedDate = [];
+
+
+let coData = [];
 
 function Ordertable() {
+  const history = useHistory();
+  const [show,setShow] = useState(false)
+  function handleCB(props){
+    order.details.set(props.name,props.value);
+    coData = [...order.details].map(([name,value])=>({
+      name,value   })); return;    
+  }
+
   const orderComponents = [
     {
         id:1,
@@ -68,9 +83,10 @@ function Ordertable() {
 
 
 ];
-  return ( <div>
-  <table className="ordertable">
-              <thead>
+  return ( <div className="ordertable123">
+    <span><h5>Create Order</h5></span>
+  <table className="table">
+              <thead className="table-dark">
                 <tr className="table-header">
                   <th></th>
                   <th>Product Types</th>
@@ -87,11 +103,22 @@ function Ordertable() {
                     image={orderItem.image}
                     description={orderItem.description}
                     name={orderItem.name}
-                    // handleClick={handleCallback}
+                    handleClick={handleCB}
                   />
                 ))}
               </tbody>
             </table>
+            <div className="cancelProceed">
+
+    <button className="btn-order" onClick={()=>{history.push('/homepage')}}>Cancel</button>
+    <button className="btn-order" onClick={()=>setShow(true)}>Proceed</button>
+    <Modal1 onClose={()=>setShow(false)} show={show}
+     ordertotal={coData.map((order)=>order.value.price).reduce((acc,val)=> acc + parseInt(val,10),0)}
+     coData={coData} />
+      {/* <OrderConfirmModal onClose={()=>setShow(false)} show={show} /> */}
+    {/* <Modal onOpen={()=>setModal(true)} modal={modal}/>  */}
+    
+    </div>
            
           </div>
   )

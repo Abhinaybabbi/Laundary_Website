@@ -49,8 +49,7 @@ router.post("/register", (req, res) => {
                     district,
                     pincode,
                 });
-                user
-                    .save()
+                user.save()
                     .then((user) => {
                         res.json({ message: "saved successfully" });
                     })
@@ -78,8 +77,7 @@ router.post("/signin", (req, res) => {
                 error: "invalid credentials",
             });
         }
-        bcrypt
-            .compare(password, savedUser.password)
+        bcrypt.compare(password, savedUser.password)
             .then((doMatch) => {
                 if (doMatch) {
                     const token = jwt.sign({ _id: savedUser._id },
